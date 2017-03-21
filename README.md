@@ -1,17 +1,17 @@
-#GT3Captcha Project
+# GT3Captcha Project
 
-##概述
+## 概述
 
 极验验证3.0 iOS SDK提供给集成iOS原生客户端开发的开发者使用, SDK不依赖任何第三方库。
 
 ## 环境需求
 
-条目||
-----|------
-开发目标|iOS7+
-开发环境|Xcode 8.0
-系统依赖|`Webkit.framework`, `JavascriptCore.framework`
-sdk三方依赖|无
+条目	|			|
+------	|---------|
+开发目标|iOS7+		|
+开发环境|Xcode 8.0|
+系统依赖|`Webkit.framework`, `JavascriptCore.framework`|
+sdk三方依赖|无		|
 
 ## 获取SDK
 
@@ -38,5 +38,3 @@ git clone https://github.com/GeeTeam/gt3-ios-objc.git
 2. 启动验证
 3. 获取验证结果
 4. 处理错误的代理
-
-## 
