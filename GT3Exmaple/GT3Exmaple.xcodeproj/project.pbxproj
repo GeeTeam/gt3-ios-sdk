@@ -13,7 +13,23 @@
 		7A4FC97A1E814D600045C748 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A4FC9781E814D600045C748 /* Main.storyboard */; };
 		7A4FC97C1E814D600045C748 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7A4FC97B1E814D600045C748 /* Assets.xcassets */; };
 		7A4FC97F1E814D600045C748 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A4FC97D1E814D600045C748 /* LaunchScreen.storyboard */; };
+		7A4FC9981E8167E50045C748 /* GT3Captcha.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A4FC9971E8167E50045C748 /* GT3Captcha.framework */; };
+		7A4FC9991E8167E50045C748 /* GT3Captcha.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7A4FC9971E8167E50045C748 /* GT3Captcha.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		7A4FC99A1E8167E50045C748 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				7A4FC9991E8167E50045C748 /* GT3Captcha.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		7A4FC96C1E814D600045C748 /* GT3Exmaple.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GT3Exmaple.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -26,6 +42,7 @@
 		7A4FC97B1E814D600045C748 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7A4FC97E1E814D600045C748 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7A4FC9801E814D600045C748 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7A4FC9971E8167E50045C748 /* GT3Captcha.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GT3Captcha.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,6 +50,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7A4FC9981E8167E50045C748 /* GT3Captcha.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -42,6 +60,7 @@
 		7A4FC9631E814D600045C748 = {
 			isa = PBXGroup;
 			children = (
+				7A4FC9971E8167E50045C748 /* GT3Captcha.framework */,
 				7A4FC96E1E814D600045C748 /* GT3Exmaple */,
 				7A4FC96D1E814D600045C748 /* Products */,
 			);
@@ -89,6 +108,7 @@
 				7A4FC9681E814D600045C748 /* Sources */,
 				7A4FC9691E814D600045C748 /* Frameworks */,
 				7A4FC96A1E814D600045C748 /* Resources */,
+				7A4FC99A1E8167E50045C748 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -274,7 +294,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 2448B7W898;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = GT3Exmaple/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Xniko.GT3Exmaple;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -286,7 +311,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 2448B7W898;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = GT3Exmaple/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Xniko.GT3Exmaple;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -312,6 +342,7 @@
 				7A4FC9851E814D600045C748 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
