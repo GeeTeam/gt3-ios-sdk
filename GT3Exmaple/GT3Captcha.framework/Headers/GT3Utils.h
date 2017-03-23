@@ -36,6 +36,10 @@ typedef NS_ENUM(NSInteger, GT3CaptchaState) {
     GT3CaptchaStateError
 };
 
+
+/**
+ * 验证模式枚举量
+ */
 typedef NS_ENUM(NSInteger, GT3CaptchaMode) {
     /** 验证默认模式*/
     GT3CaptchaModeDefault,
@@ -43,6 +47,9 @@ typedef NS_ENUM(NSInteger, GT3CaptchaMode) {
     GT3CaptchaModeFailback
 };
 
+/**
+ *  视图上结果的更新策略
+ */
 typedef NS_ENUM(NSInteger, GT3SecondaryCaptchaPolicy) {
     /** 二次验证通过 */
     GT3SecondaryCaptchaPolicyAllow,
@@ -81,7 +88,7 @@ typedef NS_ENUM(NSInteger, GT3ViewHeightConstraintType) {
 };
 
 /**
- *  语言选项
+ *  图形验证的语言选项
  */
 typedef NS_ENUM(NSInteger, GT3LanguageType) {
     /** Simplified Chinese */

@@ -10,6 +10,9 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+/**
+ *  极验定义的错误类型
+ */
 typedef NS_ENUM(NSUInteger, GT3ErrorType) {
     /** 用户中断验证导致 */
     GT3ErrorTypeUser,

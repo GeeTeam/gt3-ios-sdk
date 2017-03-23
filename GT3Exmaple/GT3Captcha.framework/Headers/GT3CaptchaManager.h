@@ -42,8 +42,17 @@
 /** 验证单例 */
 + (instancetype)sharedGTManager;
 
-/** 验证初始化方法 */
-- (instancetype)initWithAPI1:(NSString *)api_1 API2:(NSString *)api_2 timeout:(NSTimeInterval)timeout NS_DESIGNATED_INITIALIZER;
+/**
+ *  验证初始化方法
+ *
+ *  @param api_1    获取验证参数的接口
+ *  @param api_2    进行二次验证的接口
+ *  @param timeout  超时时长
+ *  @return GT3CaptchaManager 实例
+ */
+- (instancetype)initWithAPI1:(NSString *)api_1
+                        API2:(NSString *)api_2
+                     timeout:(NSTimeInterval)timeout NS_DESIGNATED_INITIALIZER;
 
 /**
  *  @abstract 取消异步请求
@@ -75,7 +84,6 @@
               withAPI2:(NSString *)api_2;
 
 /**
- *  (非必要方法)
  *  @abstract 配置状态指示器
  *
  *  @discussion
@@ -93,14 +101,14 @@
  *  @abstract 开始验证
  *
  *  @discussion
- *  获取姿态, 提交分析后, 如有必要直接在keyWindow 极验验证的GTView验证视图
+ *  获取姿态, 提交分析后, 如有必要在`[[UIApplication sharedApplication].delegate window]`上显示极验验证的GTView验证视图
  *  极验验证GTWebView通过JS与SDK通信
  *
  */
 - (void)startGTCaptchaWithAnimated:(BOOL)animated;
 
 /**
- *  如果已经获得注册数据, 请求验证
+ *  请求验证预判定
  */
 - (void)requestGTCaptcha;
 
@@ -120,7 +128,7 @@
 - (void)closeGTViewIfIsOpen;
 
 /**
- *  获取cookie的名称
+ *  获取cookie value
  *
  *  @param cookieName cookie的键名
  *  @return 对应的cookie的值
@@ -130,7 +138,6 @@
 #pragma mark 其他配置的方法
 
 /**
- *  (非必要方法)
  *  @abstract 验证标题
  *
  *  @discussion
@@ -162,7 +169,6 @@
 - (void)useGTViewWithHeightConstraintType:(GT3ViewHeightConstraintType)type;
 
 /**
- *  (非必要方法)
  *  @abstract 切换验证语言
  *
  *  @discussion
@@ -173,7 +179,6 @@
 - (void)useLanguage:(GT3LanguageType)Type;
 
 /**
- *  (非必要方法)
  *  @abstract 完全使用HTTPS协议请求验证
  *
  *  @discussion
@@ -184,7 +189,6 @@
 - (void)disableSecurityAuthentication:(BOOL)disable;
 
 /**
- *  (非必要方法)
  *  @abstract 验证背景交互事件的开关
  *
  *  @discussion 默认关闭
@@ -194,7 +198,6 @@
 - (void)disableBackgroundUserInteraction:(BOOL)disable;
 
 /**
- *  (非必要方法)
  *  @abstract Debug Mode
  *
  *  @discussion
@@ -213,16 +216,20 @@
 
 @required
 /**
- *  其他内部错误
+ *  验证错误处理
  *
  *  @discussion 抛出内部错误, 比如GTWebView等错误
  *
- *  @param error 错误源
+ *  @param manager  验证管理器
+ *  @param error    错误源
  */
 - (void)gtCaptcha:(GT3CaptchaManager *)manager errorHandler:(GT3Error *)error;
 
 /**
  *  @abstract 通知已经收到二次验证结果, 在此处理最终验证结果
+ *
+ *  @discussion
+ *  二次验证的错误只在这里返回, `decisionHandler`需要处理
  *
  *  @param manager          验证管理器
  *  @param data             二次验证返回的数据
@@ -304,8 +311,31 @@
 @protocol GT3CaptchaManagerViewDelegate <NSObject>
 
 @required
+
+/**
+ *  通知验证模式
+ *
+ *  @param manager 验证管理器
+ *  @param mode    验证模式
+ */
 - (void)gtCaptcha:(GT3CaptchaManager *)manager notifyCaptchaMode:(GT3CaptchaMode)mode;
+
+/**
+ *  更新验证状态
+ *
+ *  @param manager 验证管理器
+ *  @param state   验证状态
+ */
 - (void)gtCaptcha:(GT3CaptchaManager *)manager updateCaptchaStatus:(GT3CaptchaState)state;
+
+/**
+ *  更新验证视图
+ *
+ *  @param manager         验证管理器
+ *  @param fromValue       起始值
+ *  @param toValue         终止值
+ *  @param timeInterval    时间间隔
+ */
 - (void)gtCaptcha:(GT3CaptchaManager *)manager updateCaptchaViewWithFactor:(CGFloat)fromValue to:(CGFloat)toValue timeInterval:(NSTimeInterval)timeInterval;
 
 @end

@@ -25,7 +25,7 @@
  *  @abstract Use thoes keys to config title label in different state on the captcha button.
  *
  *  @discussion
- *  - contain keys: 'inactive', 'initial', 'waiting', 'collecting', 'computing', 'success', 'fail', 'error'.
+ *  - contain keys: 'inactive', 'active', 'initial', 'waiting', 'collecting', 'computing', 'success', 'fail', 'error'.
  */
 @property (nonatomic, strong) NSDictionary<NSString *, NSAttributedString *> *tipsDict;
 
@@ -42,8 +42,8 @@
 /**
  *  @abstract Initializes and returns a newly allocated captcha button object with the specified frame rectangle
  *
- *  @param frame The frame rectangle for the button, measured in points.
- *  @param captchaManager GTCaptchaManager instance.
+ *  @param frame            The frame rectangle for the button, measured in points.
+ *  @param captchaManager   GTCaptchaManager instance.
  *  @return A initialized GTCaptchaButton object.
  */
 - (instancetype)initWithFrame:(CGRect)frame captchaManager:(GT3CaptchaManager *)captchaManager;
@@ -51,7 +51,7 @@
 /**
  *  @abstract Start Captcha.
  *
- *  @discussion Call GTCaptchaManager instance method `startGTCaptchaWithAnimated:` inner.
+ *  @discussion Depending on captcha state, call GTCaptchaManager instance method `startGTCaptchaWithAnimated:`, `requestGTCaptcha`, `showGTViewIfRegiested` inner.
  */
 - (void)startCaptcha;
 

@@ -10,17 +10,21 @@
 
 ### Property
 
-#### **`captchaManager`**
+#### captchaManager
 
 验证管理器
 
 **Declaration**
 
 ```
-@property (nonatomic, weak) id<GT3CaptchaManagerDelegate> delegate;
+@property (nonatomic, readonly, strong) GT3CaptchaManager *captchaManager;
 ```
 
-#### **`captchaState`**
+**See also**
+
+[`GT3CaptchaManager`](./#GT3CaptchaManager)
+
+#### captchaState
 
 验证状态
 
@@ -30,7 +34,7 @@
 @property (nonatomic, readonly, assign) GT3CaptchaState captchaState;
 ```
 
-#### **`captchaEdgeInsets`**
+#### captchaEdgeInsets
 
 定义容器视图边距
 
@@ -40,7 +44,7 @@
 @property (nonatomic, assign) UIEdgeInsets captchaEdgeInsets;
 ```
 
-#### **`tipsDict`**
+#### tipsDict
 
 定义各种验证状态下按钮上的提示文案
 
@@ -50,7 +54,7 @@
 @property (nonatomic, strong) NSDictionary<NSString *, NSAttributedString *> *tipsDict;
 ```
 
-#### **`indicatorColor`**
+#### indicatorColor
 
 定义验证状态指示器的颜色
 
@@ -60,7 +64,7 @@
 @property (nonatomic, strong) UIColor *indicatorColor;
 ```
 
-#### **`logoImage`**
+#### logoImage
 
 验证按钮上的logo图片
 
@@ -72,7 +76,7 @@
 
 ### Method
 
-#### **`initWithFrame:captchaManager:`**
+#### initWithFrame:captchaManager:
 
 初始化并返回一个新的规定了尺寸的`GT3CaptchaButton`实例对象
 
@@ -93,7 +97,7 @@ captchaManager|验证管理器的实例|
 
 一个新的规定了尺寸的`GT3CaptchaButton`实例对象
 
-#### **`startCaptcha`**
+#### startCaptcha
 
 开始验证
 
@@ -107,7 +111,7 @@ captchaManager|验证管理器的实例|
 
 根据验证状态, 在`GTCaptchaManager`内部调用实例方法`startGTCaptchaWithAnimated:`, `requestGTCaptcha`, `showGTViewIfRegiested`。
 
-#### **`stopCaptcha`**
+#### stopCaptcha
 
 终止验证
 
@@ -117,7 +121,7 @@ captchaManager|验证管理器的实例|
 - (void)startCaptcha;
 ```
 
-#### **`updateTitleLabel:`**
+#### updateTitleLabel:
 
 立即更新当前的验证提示标题
 
@@ -133,11 +137,11 @@ Param		|description		|
 ----------|---------------	|
 title 		|提示标题			|
 
-##GT3CaptchaManager
+## GT3CaptchaManager
 
 ### Property
 
-#### **`delegate`**
+#### delegate
 
 验证管理的代理方法
 
@@ -147,7 +151,7 @@ title 		|提示标题			|
 @property (nonatomic, weak) id<GT3CaptchaManagerDelegate> delegate;
 ```
 
-#### **`viewDelegate`**
+#### viewDelegate
 
 验证视图代理
 
@@ -157,7 +161,7 @@ title 		|提示标题			|
 @property (nonatomic, weak) id<GT3CaptchaManagerViewDelegate> viewDelegate;
 ```
 
-#### **`captchaState`**
+#### captchaState
 
 验证状态
 
@@ -167,7 +171,7 @@ title 		|提示标题			|
 @property (nonatomic, readonly) GT3CaptchaState captchaState;
 ```
 
-#### **`isShowing`**
+#### isShowing
 
 图形验证的展示状态
 
@@ -177,7 +181,7 @@ title 		|提示标题			|
 @property (nonatomic, readonly) BOOL isShowing;
 ```
 
-#### **`API_1`**
+#### API_1
 
 获取启动验证参数的接口
 
@@ -187,7 +191,7 @@ title 		|提示标题			|
 @property (nonatomic, readonly) NSURL *API_1;
 ```
 
-#### **`API_2`**
+#### API_2
 
 进行二次验证的接口
 
@@ -197,7 +201,7 @@ title 		|提示标题			|
 @property (nonatomic, readonly) NSURL *API_2;
 ```
 
-#### **`gt_captcha_id`**
+#### gt_captcha_id
 
 本次验证会话的验证ID
 
@@ -207,7 +211,7 @@ title 		|提示标题			|
 @property (nonatomic, readonly, strong) NSString *gt_captcha_id;
 ```
 
-#### **`gt_challenge`**
+#### gt_challenge
 
 本次验证的会话的流水号
 
@@ -217,7 +221,7 @@ title 		|提示标题			|
 @property (nonatomic, readonly, strong) NSString *gt_challenge;
 ```
 
-#### **`gt_success_code`**
+#### gt_success_code
 
 当前验证的服务状态
 
@@ -231,7 +235,7 @@ title 		|提示标题			|
 
 1正常/0宕机
 	
-#### **`backgroundColor`**
+#### backgroundColor
 
 当前验证的服务状态
 
@@ -243,7 +247,7 @@ title 		|提示标题			|
 
 ### Method
 
-#### **`sharedGTManager`**
+#### sharedGTManager
 
 验证单例
 
@@ -253,7 +257,7 @@ title 		|提示标题			|
 + (instancetype)sharedGTManager;
 ```
 
-#### **`initWithAPI1:API2:timeout:`**
+#### initWithAPI1:API2:timeout:
 
 验证初始化方法
 
@@ -281,7 +285,7 @@ timeout	|超时时长			|
 
 `NS_DESIGNATED_INITIALIZER`, 请不要使用`init`
 
-#### **`cancelRequest`**
+#### cancelRequest
 
 取消异步请求
 
@@ -295,7 +299,7 @@ timeout	|超时时长			|
 
 当希望取消正在执行的**NSURLSessionDataTask**时，调用此方法
 
-#### **`configureGTest:challenge:success:withAPI2:`**
+#### configureGTest:challenge:success:withAPI2:
 
 自定义配置验证方法
 
@@ -321,7 +325,7 @@ api_2				|用于二次验证的接口.网站主根据极验服务端sdk来部署
 
 同一个challenge只能使用在同一次验证会话中
 
-#### **`configureAnimatedAcitvityIndicator:withIndicatorType:`**
+#### configureAnimatedAcitvityIndicator:withIndicatorType:
 
 配置状态指示器
 
@@ -339,7 +343,7 @@ Param	|description		|
 api_1	|自定义时需要实现的动画block,仅在type配置为GTIndicatorCustomType时才执行|
 api_2	|状态指示器的类型	|	
 
-#### **`startGTCaptchaWithAnimated:`**
+#### startGTCaptchaWithAnimated:
 
 开始验证
 
@@ -361,7 +365,7 @@ animated	|控制验证视图弹出动画的启动	|
 
 极验验证GTWebView通过JS与SDK通信
 
-#### **`requestGTCaptcha`**
+#### requestGTCaptcha
 
 请求验证预判定
 
@@ -371,7 +375,7 @@ animated	|控制验证视图弹出动画的启动	|
 - (void)requestGTCaptcha;
 ```
 
-#### **`showGTViewIfRegiested`**
+#### showGTViewIfRegiested
 
 如果已经获得注册数据, 直接加载展示图形验证
 
@@ -381,7 +385,7 @@ animated	|控制验证视图弹出动画的启动	|
 - (void)startGTCaptchaWithAnimated:(BOOL)animated;
 ```
 
-#### **`stopGTCaptcha`**
+#### stopGTCaptcha
 
 终止验证
 
@@ -391,7 +395,7 @@ animated	|控制验证视图弹出动画的启动	|
 - (void)stopGTCaptcha;
 ```
 
-#### `closeGTViewIfIsOpen`
+#### closeGTViewIfIsOpen
 
 若验证显示则关闭验证界面
 
@@ -401,7 +405,7 @@ animated	|控制验证视图弹出动画的启动	|
 - (void)closeGTViewIfIsOpen;
 ```
 
-#### `getCookieValue:`
+#### getCookieValue:
 
 获取cookie value
 
@@ -425,7 +429,7 @@ cookieName|cookie的键名		|
 
 返回cookie value
 
-#### `useGTViewWithTitle:`
+#### useGTViewWithTitle:
 
 验证标题
 
@@ -446,7 +450,7 @@ Param		|description		|
 title 		|验证标题字符串		|
 
 
-#### `useGTViewWithTitle:`
+#### useGTViewWithTitle:
 
 配置背景模糊
 
@@ -466,7 +470,7 @@ blurEffect|模糊效果			|
 
 iOS8以上生效
 
-#### `useGTViewWithHeightConstraintType:`
+#### useGTViewWithHeightConstraintType:
 
 验证视图高度约束
 
@@ -486,7 +490,7 @@ type 		|高度约束类型		|
 
 iOS9以下默认GTViewHeightConstraintDefault, iOS9以上自动适配验证高度, 不受此方法约束
 
-#### `useLanguage:`
+#### useLanguage:
 
 切换验证语言
 
@@ -506,7 +510,7 @@ Type	 	|语言类型			|
 
 默认开启HTTPS
 
-#### `disableSecurityAuthentication:`
+#### disableSecurityAuthentication:
 
 控制使用HTTPS协议请求验证
 
@@ -526,7 +530,7 @@ disable 	|是否禁止https支持	|
 
 默认开启HTTPS
 
-#### `disableBackgroundUserInteraction:`
+#### disableBackgroundUserInteraction:
 
 控制验证背景交互事件
 
@@ -546,7 +550,7 @@ disable 	|控制背景的点击交互事件	|
 
 默认不禁止
 
-#### `enableDebugMode:`
+#### enableDebugMode:
 
 Debug Mode
 
@@ -568,11 +572,11 @@ disable 	|控制debug模式	|
 
 ### Protocol
 
-#### **`GT3CaptchaManagerDelegate`**
+#### GT3CaptchaManagerDelegate
 
 ##### required
 
-1. **`gtCaptcha:errorHandler:`**
+1. gtCaptcha:errorHandler:
 	
 	内部错误处理
 	
@@ -589,7 +593,7 @@ disable 	|控制debug模式	|
 	manager 	|验证管理器		|
 	error	 	|错误对象		|
 	
-2. 	**`gtCaptcha:didReceiveSecondaryCaptchaData:response:error:decisionHandler:`**
+2. 	gtCaptcha:didReceiveSecondaryCaptchaData:response:error:decisionHandler:
 
 	通知已经收到二次验证结果, 并请在此处理最终验证结果
 	
@@ -611,7 +615,7 @@ disable 	|控制debug模式	|
 
 ##### optional
 
-1. **`gtCaptcha:willSendRequestAPI1:`**
+1. gtCaptcha:willSendRequestAPI1:
 
 	将要向**API1**发送请求的时候调用此方法, 通过此方法可以修改将要发送的请求
 	
@@ -632,7 +636,7 @@ disable 	|控制debug模式	|
 	
 	调用此方法的时候必须调用`requestHandler`, 否则导致内存泄露
 	
-2. **`gtCaptcha:didReceiveDataFromAPI1:withError:`**
+2. gtCaptcha:didReceiveDataFromAPI1:withError:
 
 	将要向**API1**发送请求的时候调用此方法, 通过此方法可以修改将要发送的请求
 	
@@ -662,7 +666,7 @@ disable 	|控制debug模式	|
  }
 	```
 	
-3. **`gtCaptcha:didReceiveCaptchaCode:result:message:`**
+3. gtCaptcha:didReceiveCaptchaCode:result:message:
 
 	通知接收到返回的验证交互结果
 	
@@ -685,7 +689,7 @@ disable 	|控制debug模式	|
 	
 	此方法仅仅是前端返回的初步结果, 并非验证最终结果。
 
-4. **`gtCpatcha:willSendSecondaryCaptchaRequest:`**
+4. gtCpatcha:willSendSecondaryCaptchaRequest:
 
 	通知接收到返回的验证交互结果
 	
@@ -710,7 +714,7 @@ disable 	|控制debug模式	|
 	{"Content-Type":@"application/x-www-form-urlencoded;charset=UTF-8"}
 	```
 	
-5. **`gtCaptchaUserDidCloseGTView:`**
+5. gtCaptchaUserDidCloseGTView:
 
 	用户主动关闭了验证码界面
 	
@@ -726,11 +730,11 @@ disable 	|控制debug模式	|
 	-------------	|---------------	|
 	manager 		|验证管理器			|
 	
-#### **`GT3CaptchaManagerViewDelegate`**
+#### GT3CaptchaManagerViewDelegate
 
 ##### required
 
-1. **`gtCaptcha:notifyCaptchaMode:`**
+1. gtCaptcha:notifyCaptchaMode:
 
 	通知验证模式
 	
@@ -747,7 +751,7 @@ disable 	|控制debug模式	|
 	manager 		|验证管理器			|
 	mode	 		|验证模式			|
 	
-2. **`gtCaptcha:updateCaptchaStatus:`**
+2. gtCaptcha:updateCaptchaStatus:
 
 	更新验证状态
 	
@@ -764,7 +768,7 @@ disable 	|控制debug模式	|
 	manager 		|验证管理器			|
 	state	 		|验证状态			|
 	
-3. **`gtCaptcha:updateCaptchaViewWithFactor:to:timeInterval:`**
+3. gtCaptcha:updateCaptchaViewWithFactor:to:timeInterval:
 
 	更新验证视图
 	
@@ -787,7 +791,7 @@ disable 	|控制debug模式	|
 
 极验封装的错误对象, 用于方便构造和返回特别信息
 
-### **`GT3ErrorType`**
+### GT3ErrorType
 
 极验定义的错误类型
  
@@ -811,10 +815,79 @@ typedef NS_ENUM(NSUInteger, GT3ErrorType) {
     GT3ErrorTypeUnknown
 };
 ```
+### GT3Error Code
+
+基本准从**NSURLErrorDomain**
+
+#### 验证超时 `-1001`
+
+与开发人员配置的超时时间和用户的网络情况的有关, 在低速网络可以对这块做测试
+
+```objc
+NSURLErrorTimedOut -1001
+```
+
+#### 取消网络请求 `-999`
+
+用户关闭了验证
+
+```objc
+NSURLErrorCancelled -999
+```
+
+#### 无法找到主机 `-1003`
+
+网络异常, 检查网络
+
+```objc
+NSURLErrorCannotFindHost -1003
+```
+
+#### 无法连接到极验服务器 `-1004`
+
+网络异常, 无法连接到极验服务器
+
+```objc
+NSURLErrorCannotConnectToHost -1004
+```
+
+#### 未连接到互联网 `-1009`
+
+无法检测到网络连接
+
+```objc
+NSURLErrorNotConnectedToInternet -1009
+```
+
+#### 服务器响应500 `-1011`
+
+等价于"500 Server Error"
+
+```objc
+NSURLErrorBadServerResponse -1011
+```
+
+#### 无资源访问权限 `-1102`
+
+传入的参数错误, 被极验服务器拒绝访问, 通常为id(gt)和challenge不正确或者不匹配导致
+
+```objc
+NSURLErrorNoPermissionsToReadFile -1102
+```
+
+#### JSON解析出错 `3840`
+
+在使用默认的failback里使用了json转字典, 检查网站主服务器返回的验证数据格式是否正确(也可能在failback接口下, 增加了额外的键值导致)
+
+如果使用套嵌的json格式, 请使用`@"gtcap"`作为极验参数字典的键名
+
+```objc
+3840
+```
 
 ### Property
 
-#### **`metaData`**
+#### metaData
 
 发生错误时接收到的元数据, 没有数据则为nil
 
@@ -824,7 +897,7 @@ typedef NS_ENUM(NSUInteger, GT3ErrorType) {
 @property (nonatomic, readonly, strong) NSData * _Nullable metaData;
 ```
 
-#### **`gtDescription`**
+#### gtDescription
 
 极验的额外错误信息
 
@@ -834,7 +907,7 @@ typedef NS_ENUM(NSUInteger, GT3ErrorType) {
 @property (nonatomic, readonly, strong) NSString * gtDescription;
 ```
 
-#### **`originalError`**
+#### originalError
 
 原始的error
 
@@ -846,7 +919,7 @@ typedef NS_ENUM(NSUInteger, GT3ErrorType) {
 
 ### Method
 
-#### **`errorWithDomainType:code:userInfo:withGTDesciption:`**
+#### errorWithDomainType:code:userInfo:withGTDesciption:
 
 通过提供的详细的参数初始化GT3Error
 
@@ -865,7 +938,7 @@ code 		|错误码				|
 dict 		|错误的`userInfo`	|
 description|错误的额外描述字段|
 
-#### **``**
+#### 
 
 基于提供的NSError封装成GT3Error
 
@@ -887,7 +960,7 @@ description|错误的额外描述字段|
 
 极验验证工具类
 
-### **`GT3CaptchaState`**
+### GT3CaptchaState
 
 极验验证状态的枚举量
  
@@ -916,7 +989,7 @@ typedef NS_ENUM(NSInteger, GT3CaptchaState) {
 };
 ```
  
-### **`GT3CaptchaMode`**
+### GT3CaptchaMode
 
 验证模式枚举量
  
@@ -931,7 +1004,7 @@ typedef NS_ENUM(NSInteger, GT3CaptchaMode) {
 };
 ```
 
-### **`GT3SecondaryCaptchaPolicy`**
+### GT3SecondaryCaptchaPolicy
 
 视图上结果的更新策略
  
@@ -946,7 +1019,7 @@ typedef NS_ENUM(NSInteger, GT3SecondaryCaptchaPolicy) {
 };
 ```
 
-### **`GT3PresentType`**
+### GT3PresentType
 
 极验验证状态的枚举量
  
@@ -965,7 +1038,7 @@ typedef NS_ENUM(NSInteger, GT3PresentType) {
 };
 ```
 
-### **`GT3ViewHeightConstraintType`**
+### GT3ViewHeightConstraintType
 
 高度约束类型
  
@@ -986,7 +1059,7 @@ typedef NS_ENUM(NSInteger, GT3ViewHeightConstraintType) {
 };
 ```
 
-### **`GT3LanguageType`**
+### GT3LanguageType
 
 语言选项
  
@@ -1011,7 +1084,7 @@ typedef NS_ENUM(NSInteger, GT3LanguageType) {
 };
 ```
 
-### **`GT3ActivityIndicatorType`**
+### GT3ActivityIndicatorType
 
 活动指示器类型
  
@@ -1028,7 +1101,7 @@ typedef NS_ENUM(NSInteger, GT3ActivityIndicatorType) {
 };
 ```
 
-### **`GT3SecondaryCaptchaBlock`**
+### GT3SecondaryCaptchaBlock
 
 返回的验证结果回调
 
@@ -1046,7 +1119,7 @@ code 			|验证结果			|
 result			|二次验证的数据		|
 message 		|其他消息			|
 
-### **`GT3CallCloseBlock`**
+### GT3CallCloseBlock
 
 关闭验证回调
 
@@ -1056,7 +1129,7 @@ message 		|其他消息			|
 typedef void(^GT3CallCloseBlock)(void);
 ```
 
-### **`GT3IndicatorAnimationViewBlock`**
+### GT3IndicatorAnimationViewBlock
 
 自定义状态指示器的动画实现block
 
