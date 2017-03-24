@@ -88,7 +88,7 @@
 
 **Parameters**
 
-Param		|description		|
+Param		|Description		|
 ----------|---------------	|
 frame 		|按钮的尺寸			|
 captchaManager|验证管理器的实例|
@@ -107,7 +107,7 @@ captchaManager|验证管理器的实例|
 - (void)startCaptcha;
 ```
 
-**discussion**
+**Discussion**
 
 根据验证状态, 在`GTCaptchaManager`内部调用实例方法`startGTCaptchaWithAnimated:`, `requestGTCaptcha`, `showGTViewIfRegiested`。
 
@@ -133,7 +133,7 @@ captchaManager|验证管理器的实例|
 
 **Parameters**
 
-Param		|description		|
+Param		|Description		|
 ----------|---------------	|
 title 		|提示标题			|
 
@@ -271,7 +271,7 @@ title 		|提示标题			|
 
 **Parameters**
 
-Param		|description		|
+Param		|Description		|
 ----------|---------------	|
 api_1		|获取验证参数的接口	|
 api_2		|进行二次验证的接口	|
@@ -314,7 +314,7 @@ timeout	|超时时长			|
 
 **Parameters**
 
-Param				|description		|
+Param				|Description		|
 ----------------	|---------------	|
 gt\_public\_key	|自定义时需要实现的动画block,仅在type配置为GTIndicatorCustomType时才执行|
 gt_challenge		|状态指示器的类型	|
@@ -338,7 +338,7 @@ api_2				|用于二次验证的接口.网站主根据极验服务端sdk来部署
 
 **Parameters**
 
-Param	|description		|
+Param	|Description		|
 ------	|---------------	|
 api_1	|自定义时需要实现的动画block,仅在type配置为GTIndicatorCustomType时才执行|
 api_2	|状态指示器的类型	|	
@@ -355,7 +355,7 @@ api_2	|状态指示器的类型	|
 
 **Parameters**
 
-Param		|description				|
+Param		|Description				|
 ----------|----------------------	|
 animated	|控制验证视图弹出动画的启动	|
 
@@ -417,7 +417,7 @@ animated	|控制验证视图弹出动画的启动	|
 
 **Parameters**
 
-Param		|description		|
+Param		|Description		|
 ----------|---------------	|
 cookieName|cookie的键名		|
 
@@ -433,7 +433,7 @@ cookieName|cookie的键名		|
 
 验证标题
 
-**discussion**
+**Discussion**
  
 默认不开启. 字符长度不能超过28, 一个中文字符为两个2字符长度.
 
@@ -445,7 +445,7 @@ cookieName|cookie的键名		|
 
 **Parameters**
 
-Param		|description		|
+Param		|Description		|
 ----------|---------------	|
 title 		|验证标题字符串		|
 
@@ -462,11 +462,11 @@ title 		|验证标题字符串		|
 
 **Parameters**
 
-Param		|description		|
+Param		|Description		|
 ----------|---------------	|
 blurEffect|模糊效果			|
 
-**discussion**
+**Discussion**
 
 iOS8以上生效
 
@@ -482,11 +482,11 @@ iOS8以上生效
 
 **Parameters**
 
-Param		|description		|
+Param		|Description		|
 ----------|---------------	|
 type 		|高度约束类型		|
 
-**discussion**
+**Discussion**
 
 iOS9以下默认GTViewHeightConstraintDefault, iOS9以上自动适配验证高度, 不受此方法约束
 
@@ -502,11 +502,11 @@ iOS9以下默认GTViewHeightConstraintDefault, iOS9以上自动适配验证高�
 
 **Parameters**
 
-Param		|description		|
+Param		|Description		|
 ----------|---------------	|
 Type	 	|语言类型			|
 
-**discussion**
+**Discussion**
 
 默认开启HTTPS
 
@@ -522,11 +522,11 @@ Type	 	|语言类型			|
 
 **Parameters**
 
-Param		|description		|
+Param		|Description		|
 ----------|---------------	|
 disable 	|是否禁止https支持	|
 
-**discussion**
+**Discussion**
 
 默认开启HTTPS
 
@@ -542,11 +542,11 @@ disable 	|是否禁止https支持	|
 
 **Parameters**
 
-Param		|description			|
+Param		|Description			|
 ----------|------------------	|
 disable 	|控制背景的点击交互事件	|
 
-**discussion**
+**Discussion**
 
 默认不禁止
 
@@ -562,11 +562,11 @@ Debug Mode
 
 **Parameters**
 
-Param		|description	|
+Param		|Description	|
 ----------|------------	|
 disable 	|控制debug模式	|
 
-**discussion**
+**Discussion**
 
 默认不开启
 
@@ -588,7 +588,7 @@ disable 	|控制debug模式	|
 	
 	**Parameters**
 
-	Param		|description	|
+	Param		|Description	|
 	----------|------------	|
 	manager 	|验证管理器		|
 	error	 	|错误对象		|
@@ -605,7 +605,7 @@ disable 	|控制debug模式	|
 	
 	**Parameters**
 
-	Param		|description		|
+	Param		|Description		|
 	----------|---------------	|
 	manager 	|验证管理器			|
 	data 		|二次验证返回的数据	|
@@ -627,7 +627,7 @@ disable 	|控制debug模式	|
 	
 	**Parameters**
 
-	Param			|description		|
+	Param			|Description		|
 	-------------	|---------------	|
 	manager 		|验证管理器			|
 	requestHandler|修改请求的执行block|
@@ -648,7 +648,7 @@ disable 	|控制debug模式	|
 	
 	**Parameters**
 
-	Param			|description		|
+	Param			|Description		|
 	-------------	|---------------	|
 	manager 		|验证管理器			|
 	dictionary 	|包含极验的验证数据	|
@@ -660,10 +660,10 @@ disable 	|控制debug模式	|
 	
 	```
 	{
- "challenge" : "12ae1159ffdfcbbc306897e8d9bf6d06",
- "gt" : "ad872a4e1a51888967bdb7cb45589605",
- "success" : 1
- }
+ 	"challenge" : "12ae1159ffdfcbbc306897e8d9bf6d06",
+ 	"gt" : "ad872a4e1a51888967bdb7cb45589605",
+ 	"success" : 1
+ 	}
 	```
 	
 3. gtCaptcha:didReceiveCaptchaCode:result:message:
@@ -678,7 +678,7 @@ disable 	|控制debug模式	|
 	
 	**Parameters**
 
-	Param			|description		|
+	Param			|Description		|
 	-------------	|---------------	|
 	manager 		|验证管理器			|
 	code		 	|验证交互结果		|
@@ -689,19 +689,19 @@ disable 	|控制debug模式	|
 	
 	此方法仅仅是前端返回的初步结果, 并非验证最终结果。
 
-4. gtCpatcha:willSendSecondaryCaptchaRequest:
+4. gtCaptcha:willSendSecondaryCaptchaRequest:
 
 	通知接收到返回的验证交互结果
 	
 	**Declaration**
 	
 	```
-	- (void)gtCpatcha:(GT3CaptchaManager *)manager willSendSecondaryCaptchaRequest:(void (^)(NSMutableURLRequest * request))requestHandler;
+	- (void)gtCaptcha:(GT3CaptchaManager *)manager willSendSecondaryCaptchaRequest:(void (^)(NSMutableURLRequest * request))requestHandler;
 	```
 	
 	**Parameters**
 
-	Param			|description		|
+	Param			|Description		|
 	-------------	|---------------	|
 	manager 		|验证管理器			|
 	requestHandler|修改二次验证请求的block|
@@ -726,7 +726,7 @@ disable 	|控制debug模式	|
 	
 	**Parameters**
 
-	Param			|description		|
+	Param			|Description		|
 	-------------	|---------------	|
 	manager 		|验证管理器			|
 	
@@ -746,7 +746,7 @@ disable 	|控制debug模式	|
 	
 	**Parameters**
 
-	Param			|description		|
+	Param			|Description		|
 	-------------	|---------------	|
 	manager 		|验证管理器			|
 	mode	 		|验证模式			|
@@ -763,7 +763,7 @@ disable 	|控制debug模式	|
 	
 	**Parameters**
 
-	Param			|description		|
+	Param			|Description		|
 	-------------	|---------------	|
 	manager 		|验证管理器			|
 	state	 		|验证状态			|
@@ -780,7 +780,7 @@ disable 	|控制debug模式	|
 	
 	**Parameters**
 
-	Param			|description		|
+	Param			|Description		|
 	-------------	|---------------	|
 	manager 		|验证管理器			|
 	fromValue		|起始值				|
@@ -819,20 +819,20 @@ typedef NS_ENUM(NSUInteger, GT3ErrorType) {
 
 基本准从**NSURLErrorDomain**
 
-#### 验证超时 `-1001`
-
-与开发人员配置的超时时间和用户的网络情况的有关, 在低速网络可以对这块做测试
-
-```objc
-NSURLErrorTimedOut -1001
-```
-
 #### 取消网络请求 `-999`
 
 用户关闭了验证
 
 ```objc
 NSURLErrorCancelled -999
+```
+
+#### 验证超时 `-1001`
+
+与开发人员配置的超时时间和用户的网络情况的有关, 在低速网络可以对这块做测试
+
+```objc
+NSURLErrorTimedOut -1001
 ```
 
 #### 无法找到主机 `-1003`
@@ -931,7 +931,7 @@ NSURLErrorNoPermissionsToReadFile -1102
 
 **Parameters**
 
-Param		|description		|
+Param		|Description		|
 ----------|---------------	|
 type 		|极验定义的错误类型	|
 code 		|错误码				|
@@ -950,7 +950,7 @@ description|错误的额外描述字段|
 
 **Parameters**
 
-Param		|description		|
+Param		|Description		|
 ----------|---------------	|
 type 		|极验定义的错误类型	|
 error 		|原始的`NSError`实例对象|
@@ -1113,7 +1113,7 @@ typedef NSURLRequest * (^GT3SecondaryCaptchaBlock)(NSString *code, NSDictionary 
 
 **Parameters**
 
-Param			|description		|
+Param			|Description		|
 -------------	|---------------	|
 code 			|验证结果			|
 result			|二次验证的数据		|
@@ -1141,7 +1141,7 @@ typedef void(^GT3IndicatorAnimationViewBlock)(CALayer *layer, CGSize size, UICol
 
 **Parameters**
 
-Param			|description				|
+Param			|Description				|
 -------------	|----------------------	|
 layer 			|状态指示器视图的layer		|
 size			|layer的大小,默认 {64, 64}|

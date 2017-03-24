@@ -35,6 +35,8 @@
     GT3CaptchaManager *captchaManager = [[GT3CaptchaManager alloc] initWithAPI1:api_1 API2:api_2 timeout:5.0];
     captchaManager.delegate = self;
     
+//    [captchaManager enableDebugMode:YES];
+    
     //创建验证视图的实例, 并添加到父视图上
     GT3CaptchaButton *captchaButton = [[GT3CaptchaButton alloc] initWithFrame:CGRectMake(0, 0, 300, 44) captchaManager:captchaManager];
     captchaButton.center = self.view.center;
