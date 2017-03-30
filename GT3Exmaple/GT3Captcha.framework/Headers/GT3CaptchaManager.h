@@ -297,7 +297,7 @@
  *  @param manager        验证管理器
  *  @param requestHandler 修改二次验证请求的block
  */
-- (void)gtCpatcha:(GT3CaptchaManager *)manager willSendSecondaryCaptchaRequest:(void (^)(NSMutableURLRequest * request))requestHandler;
+- (void)gtCaptcha:(GT3CaptchaManager *)manager willSendSecondaryCaptchaRequest:(void (^)(NSMutableURLRequest * request))requestHandler;
 
 /**
  *  @abstract 用户主动关闭了验证码界面

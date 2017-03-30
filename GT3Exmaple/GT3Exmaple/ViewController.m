@@ -7,12 +7,13 @@
 //
 
 #import "ViewController.h"
+#import <WebKit/WebKit.h>
 #import <GT3Captcha/GT3Captcha.h>
 
-//网站主部署的首次验证链接 (api_1)
-#define api_1 @"http://192.168.1.208:9977/gt/register1"
-//网站主部署的二次验证链接 (api_2)
-#define api_2 @"http://192.168.1.208:9977/gt/validate"
+//网站主部署的用于验证注册的接口 (api_1)
+#define api_1 @"https://www.geetest.com/demo/gt/register-test"
+//网站主部署的二次验证的接口 (api_2)
+#define api_2 @"https://www.geetest.com/demo/gt/validate-test"
 
 @interface ViewController () <GT3CaptchaManagerDelegate>
 
@@ -63,6 +64,15 @@
         //二次验证发生错误
         decisionHandler(GT3SecondaryCaptchaPolicyForbidden);
         NSLog(@"validate error: %ld, %@", (long)error.code, error.localizedDescription);
+    }
+}
+
+- (void)gtCaptcha:(GT3CaptchaManager *)manager didReceiveDataFromAPI1:(NSDictionary *)dictionary withError:(GT3Error *)error {
+    if (!error) {
+        NSLog(@"didReceiveDataFromAPI1:\n%@", dictionary);
+    }
+    else {
+        NSLog(@"didReceiveDataFromAPI1 error: %@", error.localizedDescription);
     }
 }
 

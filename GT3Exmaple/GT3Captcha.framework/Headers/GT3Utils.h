@@ -44,7 +44,9 @@ typedef NS_ENUM(NSInteger, GT3CaptchaMode) {
     /** 验证默认模式*/
     GT3CaptchaModeDefault,
     /** 验证宕机模式*/
-    GT3CaptchaModeFailback
+    GT3CaptchaModeFailback,
+    GT3CaptchaModeNoLogo,
+    GT3CaptchaModeLogo
 };
 
 /**
