@@ -314,6 +314,10 @@
 				INFOPLIST_FILE = GT3Exmaple/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-all_load",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = Xniko.GT3Exmaple;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -332,6 +336,10 @@
 				INFOPLIST_FILE = GT3Exmaple/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-all_load",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = Xniko.GT3Exmaple;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
