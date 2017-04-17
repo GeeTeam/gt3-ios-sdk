@@ -22,7 +22,7 @@
 
 **See also**
 
-[`GT3CaptchaManager`](./#GT3CaptchaManager)
+[`GT3CaptchaManager`](#GT3CaptchaManager)
 
 #### captchaState
 
@@ -201,7 +201,7 @@ title 		|提示标题			|
 @property (nonatomic, readonly) NSURL *API_2;
 ```
 
-#### gt_captcha_id
+#### gt\_captcha\_id
 
 本次验证会话的验证ID
 
@@ -221,7 +221,7 @@ title 		|提示标题			|
 @property (nonatomic, readonly, strong) NSString *gt_challenge;
 ```
 
-#### gt_success_code
+#### gt\_success\_code
 
 当前验证的服务状态
 
@@ -246,6 +246,16 @@ title 		|提示标题			|
 ```
 
 ### Method
+
+#### sdkVersion
+
+SDK版本号
+
+**Declaration**
+
+```
++ (NSString *)sdkVersion;
+```
 
 #### sharedGTManager
 
@@ -363,27 +373,7 @@ animated	|控制验证视图弹出动画的启动	|
 
 获取姿态, 提交分析后, 如有必要在keyWindow上创建极验验证的GTView验证视图
 
-极验验证GTWebView通过JS与SDK通信
-
-#### requestGTCaptcha
-
-请求验证预判定
-
-**Declaration**
-
-```
-- (void)requestGTCaptcha;
-```
-
-#### showGTViewIfRegiested
-
-如果已经获得注册数据, 直接加载展示图形验证
-
-**Declaration**
-
-```
-- (void)startGTCaptchaWithAnimated:(BOOL)animated;
-```
+>极验验证GTWebView通过JS与SDK通信
 
 #### stopGTCaptcha
 

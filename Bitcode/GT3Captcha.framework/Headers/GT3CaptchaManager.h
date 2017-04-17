@@ -14,6 +14,9 @@
 
 @interface GT3CaptchaManager : NSObject
 
+/** SDK版本号 */
++ (NSString *)sdkVersion;
+
 /** 验证管理代理 */
 @property (nonatomic, weak) id<GT3CaptchaManagerDelegate> delegate;
 /** 验证视图代理 */
@@ -35,7 +38,7 @@
 @property (nonatomic, readonly, strong) NSNumber *gt_success_code;
 
 /** 背景验证 */
-@property (nonatomic, strong) UIColor *backgroundColor;
+@property (nonatomic, strong) UIColor *maskColor;
 
 #pragma mark 基本方法
 
@@ -106,16 +109,6 @@
  *
  */
 - (void)startGTCaptchaWithAnimated:(BOOL)animated;
-
-/**
- *  请求验证预判定
- */
-- (void)requestGTCaptcha;
-
-/**
- *  如果已经获得注册数据, 直接加载展示图形验证
- */
-- (void)showGTViewIfRegiested;
 
 /**
  *  终止验证
