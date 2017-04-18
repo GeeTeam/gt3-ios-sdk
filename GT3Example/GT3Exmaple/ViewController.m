@@ -25,10 +25,22 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.view.backgroundColor = [UIColor whiteColor];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
+    [self loopNavi];
     [self createCaptcha];
+}
+
+- (void)loopNavi {
+    UIBarButtonItem *buttonItem = [[UIBarButtonItem alloc] initWithTitle:@"Push" style:UIBarButtonItemStylePlain target:self action:@selector(pushVC)];
+    [self.navigationController.navigationBar.topItem setRightBarButtonItem:buttonItem];
+}
+
+- (void)pushVC {
+    ViewController *vc = [[ViewController alloc] init];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (void)createCaptcha {
@@ -44,6 +56,10 @@
     //推荐直接开启验证
     [captchaButton startCaptcha];
     [self.view addSubview:captchaButton];
+}
+
+- (void)gtCaptchaUserDidCloseGTView:(GT3CaptchaManager *)manager {
+    NSLog(@"User Did Close GTView");
 }
 
 - (void)gtCaptcha:(GT3CaptchaManager *)manager errorHandler:(GT3Error *)error {
