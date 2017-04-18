@@ -46,11 +46,11 @@ demo以iOS8作为示例, 语言默认支持中文简体、中文繁体、英文�
 	</array>
 ```
 
-iOS7 不支持`Dynamic Library`, 所以无法使用`embedded binaries`, 而无法获取`.strings`等资源文件, 如需自定义按钮的标题请查阅接口文档
+iOS7 不支持`Dynamic Library`, 所以无法使用`embedded binaries`, 而无法获取`.strings`等资源文件, 如需自定义按钮的标题请查阅[`tipsDict`](https://github.com/GeeTeam/gt3-ios-sdk/blob/develop/gt3-ios-dev-doc.md#tipsdict)相关定义
 
 极验验证3.0服务介绍[服务介绍](http://docs.geetest.com/install/overview/)
 
-SDK安装教程见[官方文档](https://docs.geetest.com/install/client/ios/)
+SDK安装教程见[官方文档](http://docs.geetest.com/install/client/ios/)
 
 SDK接口文档见[接口文档](https://github.com/GeeTeam/gt3-ios-sdk/blob/develop/gt3-ios-dev-doc.md)
 

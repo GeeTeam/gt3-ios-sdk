@@ -22,17 +22,17 @@ typedef NS_ENUM(NSInteger, GT3CaptchaState) {
     GT3CaptchaStateActive,
     /** 验证初始化中 */
     GT3CaptchaStateInitial,
+    /** 验证等待交互中 */
+    GT3CaptchaStateWaiting,
     /** 验证检测数据中 */
     GT3CaptchaStateCollecting,
-    /** 验证等待提交中 */
-    GT3CaptchaStateWaiting,
-    /** 验证结果判定中*/
+    /** 验证结果判定中 */
     GT3CaptchaStateComputing,
-    /** 验证通过*/
+    /** 验证通过 */
     GT3CaptchaStateSuccess,
-    /** 验证失败*/
+    /** 验证失败 */
     GT3CaptchaStateFail,
-    /** 验证发生错误*/
+    /** 验证发生错误 */
     GT3CaptchaStateError
 };
 
@@ -120,29 +120,6 @@ typedef NS_ENUM(NSInteger, GT3ActivityIndicatorType) {
     /** Custom Indicator Type */
     GT3IndicatorTypeCustom,
 };
-
-/**
- *  默认验证处理block
- *
- *  @param gt_captcha_id   用于验证的captcha_id
- *  @param gt_challenge    验证的流水号
- *  @param gt_success_code 网站主侦测到极验服务器的状态
- */
-typedef void(^GT3DefaultCaptchaHandlerBlock)(NSString *gt_captcha_id, NSString *gt_challenge, NSNumber *gt_success_code);
-
-/**
- *  验证完成回调
- *
- *  @param code    验证结果 1 成功/ 其他 失败
- *  @param result  返回二次验证所需数据
- {
- "geetest_challenge": "5a8c21e206f5f7ba4fa630acf269d0ec4z",
- "geetest_validate": "f0f541006215ac784859e29ec23d5b97",
- "geetest_seccode": "f0f541006215ac784859e29ec23d5b97|jordan"
- }
- *  @param message 验证结果信息 （sucess/fail）
- */
-typedef NSURLRequest * (^GT3SecondaryCaptchaBlock)(NSString *code, NSDictionary *result, NSString *message);
 
 /**
  *  关闭验证回调

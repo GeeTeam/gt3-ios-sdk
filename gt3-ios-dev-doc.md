@@ -48,11 +48,23 @@
 
 定义各种验证状态下按钮上的提示文案
 
+**Discussion**
+
+字典请使用以下键名, 与`GT3CaptchaState`一一对应
+
+```
+'inactive', 'active', 'initial', 'waiting', 'collecting', 'computing', 'success', 'fail', 'error'.
+```
+
 **Declaration**
 
 ```
 @property (nonatomic, strong) NSDictionary<NSString *, NSAttributedString *> *tipsDict;
 ```
+
+**Seealso**
+
+`GT3CaptchaState`
 
 #### indicatorColor
 

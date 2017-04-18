@@ -17,10 +17,23 @@
 
 @interface ViewController () <GT3CaptchaManagerDelegate>
 
+@property (nonatomic, strong) GT3CaptchaManager *captchaManager;
+
 @end
 
 @implementation ViewController
 
+- (GT3CaptchaManager *)captchaManager {
+    if (!_captchaManager) {
+        //创建验证管理器实例
+        _captchaManager = [[GT3CaptchaManager alloc] initWithAPI1:api_1 API2:api_2 timeout:5.0];
+        _captchaManager.delegate = self;
+        
+        //debug mode
+        //    [captchaManager enableDebugMode:YES];
+    }
+    return _captchaManager;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -28,9 +41,13 @@
     self.view.backgroundColor = [UIColor whiteColor];
 }
 
+- (void)viewWillDisappear:(BOOL)animated {
+    [self.captchaManager stopGTCaptcha];
+}
+
 - (void)viewWillAppear:(BOOL)animated {
     [self loopNavi];
-    [self createCaptcha];
+    [self createCaptchaButton];
 }
 
 - (void)loopNavi {
@@ -43,15 +60,9 @@
     [self.navigationController pushViewController:vc animated:YES];
 }
 
-- (void)createCaptcha {
-    //创建验证管理器实例
-    GT3CaptchaManager *captchaManager = [[GT3CaptchaManager alloc] initWithAPI1:api_1 API2:api_2 timeout:5.0];
-    captchaManager.delegate = self;
-    
-//    [captchaManager enableDebugMode:YES];
-    
+- (void)createCaptchaButton {
     //创建验证视图的实例, 并添加到父视图上
-    GT3CaptchaButton *captchaButton = [[GT3CaptchaButton alloc] initWithFrame:CGRectMake(0, 0, 300, 44) captchaManager:captchaManager];
+    GT3CaptchaButton *captchaButton = [[GT3CaptchaButton alloc] initWithFrame:CGRectMake(0, 0, 300, 44) captchaManager:self.captchaManager];
     captchaButton.center = self.view.center;
     //推荐直接开启验证
     [captchaButton startCaptcha];
