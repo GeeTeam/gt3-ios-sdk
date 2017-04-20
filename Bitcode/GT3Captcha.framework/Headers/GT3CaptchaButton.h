@@ -80,7 +80,7 @@
 
 @optional
 /** Return NO to disallow captcha event. Default YES. */
-- (BOOL)captchaButtonShouldBeginCaptcha:(GT3CaptchaButton *)button;
+- (BOOL)captchaButtonShouldBeginTapAction:(GT3CaptchaButton *)button;
 
 /** Called this method after GT3CaptchaButton's property 'cpatchaState' did change. */
 - (void)captchaButton:(GT3CaptchaButton *)button didChangeState:(GT3CaptchaState)state;
