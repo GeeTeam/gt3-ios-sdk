@@ -24,6 +24,16 @@
 
 [`GT3CaptchaManager`](#GT3CaptchaManager)
 
+#### delegate
+
+验证按钮代理
+
+**Declaration**
+
+```
+@property (nonatomic, weak) id<GT3CaptchaButtonDelegate> delegate;
+```
+
 #### captchaState
 
 验证状态
@@ -148,6 +158,47 @@ captchaManager|验证管理器的实例|
 Param		|Description		|
 ----------|---------------	|
 title 		|提示标题			|
+
+### Protocol
+
+#### GT3CaptchaButtonDelegate
+
+##### captchaButtonShouldBeginCaptcha:
+
+控制是否执行验证事件
+
+**Declaration**
+
+```
+- (BOOL)captchaButtonShouldBeginCaptcha:(GT3CaptchaButton *)button;
+```
+
+**Discussion**
+
+默认返回`YES`, 只有当返回`NO`时不执行验证事件 
+
+**Parameters**
+
+Param		|Description		|
+----------|---------------	|
+button 	|验证按钮			|
+
+##### captchaButton:didChangeState:
+
+验证状态改变的通知回调
+
+**Declaration**
+
+```
+- (void)captchaButton:(GT3CaptchaButton *)button didChangeState:(GT3CaptchaState)state;
+```
+
+**Parameters**
+
+Param		|Description		|
+----------|---------------	|
+button 	|验证按钮			|
+state		|当前的按钮状态		|
 
 ## GT3CaptchaManager
 
