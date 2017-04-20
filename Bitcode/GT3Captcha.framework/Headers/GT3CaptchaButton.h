@@ -10,10 +10,15 @@
 
 @class GT3CaptchaManager;
 
+@protocol GT3CaptchaButtonDelegate;
+
 @interface GT3CaptchaButton : UIControl
 
 /** Captcha Manager */
 @property (nonatomic, readonly, strong) GT3CaptchaManager *captchaManager;
+
+/** Captcha Button Delegate */
+@property (nonatomic, weak) id<GT3CaptchaButtonDelegate> delegate;
 
 /** Captcha State */
 @property (nonatomic, readonly, assign) GT3CaptchaState captchaState;
@@ -68,5 +73,16 @@
  *  @param title An attributed string for title
  */
 - (void)updateTitleLabel:(NSAttributedString *)title;
+
+@end
+
+@protocol GT3CaptchaButtonDelegate <NSObject>
+
+@optional
+/** Return NO to disallow captcha event. Default YES. */
+- (BOOL)captchaButtonShouldBeginCaptcha:(GT3CaptchaButton *)button;
+
+/** Called this method after GT3CaptchaButton's property 'cpatchaState' did change. */
+- (void)captchaButton:(GT3CaptchaButton *)button didChangeState:(GT3CaptchaState)state;
 
 @end
