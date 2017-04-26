@@ -30,7 +30,7 @@
  *  @abstract Use thoes keys to config title label in different state on the captcha button.
  *
  *  @discussion
- *  - contain keys: 'inactive', 'active', 'initial', 'waiting', 'collecting', 'computing', 'success', 'fail', 'error'.
+ *  - contain keys: 'inactive', 'active', 'initial', 'waiting', 'collecting', 'computing', 'success', 'fail', 'error', 'cancel'.
  */
 @property (nonatomic, strong) NSDictionary<NSString *, NSAttributedString *> *tipsDict;
 

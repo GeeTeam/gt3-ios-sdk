@@ -106,6 +106,8 @@
  *  @discussion
  *  获取姿态, 提交分析后, 如有必要在`[[UIApplication sharedApplication].delegate window]`上显示极验验证的GTView验证视图
  *  极验验证GTWebView通过JS与SDK通信
+ *  内部逻辑会根据当前的`captchaState`属性的状态不同而变更
+ *
  *
  */
 - (void)startGTCaptchaWithAnimated:(BOOL)animated;
@@ -318,8 +320,10 @@
  *
  *  @param manager 验证管理器
  *  @param state   验证状态
+ *  @param tip     提示标题
+ *  @param color   文字色彩
  */
-- (void)gtCaptcha:(GT3CaptchaManager *)manager updateCaptchaStatus:(GT3CaptchaState)state;
+- (void)gtCaptcha:(GT3CaptchaManager *)manager updateCaptchaStatus:(GT3CaptchaState)state tip:(NSString *)tip color:(UIColor *)color;
 
 /**
  *  更新验证视图
