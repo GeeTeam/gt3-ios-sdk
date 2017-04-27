@@ -27,12 +27,22 @@
 @property (nonatomic, assign) UIEdgeInsets captchaEdgeInsets;
 
 /**
- *  @abstract Use thoes keys to config title label in different state on the captcha button.
+ *  @abstract
+ *  Use thoes keys to config title label in different
+ *  state on the captcha button.
  *
  *  @discussion
- *  - contain keys: 'inactive', 'active', 'initial', 'waiting', 'collecting', 'computing', 'success', 'fail', 'error', 'cancel'.
+ *  - contain keys: 'inactive', 'active', 'initial',
+ *  'waiting', 'collecting', 'computing', 'success', 
+ *  'fail', 'error', 'cancel'.
  */
 @property (nonatomic, strong) NSDictionary<NSString *, NSAttributedString *> *tipsDict;
+
+/**
+ *  Captcha Button `backgroundColor`. Defaults to
+ *  0xf3f3f3. Animatable.
+ */
+@property (nonatomic, strong) UIColor *mainColor;
 
 /**
  *  Defines color for Captcha Indicator View background.
@@ -40,12 +50,33 @@
 @property (nonatomic, strong) UIColor *indicatorColor;
 
 /**
- *  Logo Image View, just work in same configuration as back-end.
+ *  Captcha Button `layer.borderColor`. Defaults 
+ *  to 0xcccccc. Animatable.
+ */
+@property (nonatomic, assign) CGColorRef borderColor;
+
+/**
+ *  Captcha Button `layer.borderWidth` Defaults to
+ *  1.0. Animatable.
+ */
+@property (nonatomic, assign) CGFloat borderWidth;
+
+/**
+ *  Captcha Button `layer.cornerRadius`. Defaults
+ *  to 3.0. Animatable.
+ */
+@property (nonatomic, assign) CGFloat cornerRadius;
+
+/**
+ *  Logo Image View, just work in same configuration 
+ *  as back-end.
  */
 @property (nonatomic, strong) UIImage *logoImage;
 
 /**
- *  @abstract Initializes and returns a newly allocated captcha button object with the specified frame rectangle
+ *  @abstract
+ *  Initializes and returns a newly allocated captcha
+ *  button object with the specified frame rectangle
  *
  *  @param frame            The frame rectangle for the button, measured in points.
  *  @param captchaManager   GTCaptchaManager instance.
@@ -56,14 +87,18 @@
 /**
  *  @abstract Start Captcha.
  *
- *  @discussion Depending on captcha state, call GTCaptchaManager instance method `startGTCaptchaWithAnimated:`, `requestGTCaptcha`, `showGTViewIfRegiested` inner.
+ *  @discussion
+ *  Depending on captcha state, call GTCaptchaManager
+ *  instance method `startGTCaptchaWithAnimated:`, 
+ *  `requestGTCaptcha`, `showGTViewIfRegiested` inner.
  */
 - (void)startCaptcha;
 
 /**
  *  @abstract Stop Captcha.
  *
- *  @discussion Call GTCaptchaManager instance method `stopGTCaptcha` inner.
+ *  @discussion Call GTCaptchaManager instance method 
+ *  `stopGTCaptcha` inner.
  */
 - (void)stopCaptcha;
 
