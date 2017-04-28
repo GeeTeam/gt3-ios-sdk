@@ -67,6 +67,7 @@ SDK接口文档见[接口文档](https://github.com/GeeTeam/gt3-ios-sdk/blob/dev
 
 ## 更新日志
 
+* **0.6.1:** 针对按钮绑定集成验证优化；针对反馈提供更多新接口；改善初始化体验；提供更详实的演示demo 
 * **0.5.7:** 修正`NSBundle`在非embedded binaries中的问题
 * **0.5.6:** 修改提示文案；`GTCaptchaManagerViewDelegate`方法更新；验证成功后再次验证只需要点击一次；
 * **0.5.4:** 对`GT3CaptchaButton`增加可选的代理方法
