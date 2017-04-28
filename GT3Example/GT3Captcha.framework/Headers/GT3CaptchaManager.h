@@ -100,6 +100,14 @@
                          withIndicatorType:(GT3ActivityIndicatorType)type;
 
 /**
+ *
+ *  @abstract 注册验证
+ *
+ *  @param completionHandler 注册成功后的回调
+ */
+- (void)registerCaptcha:(GT3CaptchaDefaultBlock)completionHandler;
+
+/**
  *  ❗️<b>必要方法</b>❗️
  *  @abstract 开始验证
  *
@@ -108,7 +116,6 @@
  *  极验验证GTWebView通过JS与SDK通信
  *  内部逻辑会根据当前的`captchaState`属性的状态不同而变更
  *
- *
  */
 - (void)startGTCaptchaWithAnimated:(BOOL)animated;
 
@@ -116,6 +123,19 @@
  *  终止验证
  */
 - (void)stopGTCaptcha;
+
+/**
+ *  @abstract 重置验证
+ *
+ *  @discussion
+ *  内部先调用`stopGTCaptcha`后, 在主线程延迟delay秒后
+ *  执行`startGTCaptchaWithAnimated:`。
+ *  只在`GT3CaptchaStateFail`,`GT3CaptchaStateError`,
+ *  `GT3CaptchaStateSuccess`状态下执行。
+ *
+ *  @param delay 重置延迟
+ */
+- (void)resetGTCaptcha:(NSTimeInterval)delay;
 
 /**
  *  若验证显示则关闭验证界面
@@ -131,6 +151,13 @@
 - (NSString *)getCookieValue:(NSString *)cookieName;
 
 #pragma mark 其他配置的方法
+
+/**
+ *  @abstract 验证超时的时长
+ *
+ *  @param timeout GT3WebView资源请求超时时间
+ */
+- (void)useGTViewWithTimeout:(NSTimeInterval)timeout;
 
 /**
  *  @abstract 验证标题
@@ -151,17 +178,6 @@
  *  @param blurEffect 模糊特效
  */
 - (void)useVisualViewWithEffect:(UIBlurEffect *)blurEffect;
-
-/**
- *  @abstract 验证高度约束
- *
- *  @discussion
- *  iOS8以下默认GTViewHeightConstraintDefault, iOS9以上自动适配验证高度,
- *  不受此方法约束
- *
- *  @param type 高度约束类型
- */
-- (void)useGTViewWithHeightConstraintType:(GT3ViewHeightConstraintType)type;
 
 /**
  *  @abstract 切换验证语言
@@ -305,7 +321,7 @@
 
 @protocol GT3CaptchaManagerViewDelegate <NSObject>
 
-@required
+@optional
 
 /**
  *  通知验证模式

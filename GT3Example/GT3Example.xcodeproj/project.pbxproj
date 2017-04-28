@@ -7,11 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		7A25AFE61EA886A80045E3DE /* GT3Captcha.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A958B1E1E8D5B340030EBC3 /* GT3Captcha.framework */; };
-		7A25AFE71EA886A80045E3DE /* GT3Captcha.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7A958B1E1E8D5B340030EBC3 /* GT3Captcha.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		7A0FD5A51EB37E51000A4518 /* CustomButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A0FD5981EB37E51000A4518 /* CustomButton.m */; };
+		7A0FD5A61EB37E51000A4518 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A0FD59A1EB37E51000A4518 /* LoginViewController.m */; };
+		7A0FD5A71EB37E51000A4518 /* NSAttributedString+AttributedString.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A0FD59C1EB37E51000A4518 /* NSAttributedString+AttributedString.m */; };
+		7A0FD5A81EB37E51000A4518 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A0FD59E1EB37E51000A4518 /* RegisterViewController.m */; };
+		7A0FD5A91EB37E51000A4518 /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A0FD5A01EB37E51000A4518 /* TableViewController.m */; };
+		7A0FD5AA1EB37E51000A4518 /* TextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A0FD5A21EB37E51000A4518 /* TextField.m */; };
+		7A0FD5AB1EB37E51000A4518 /* TipsLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A0FD5A41EB37E51000A4518 /* TipsLabel.m */; };
+		7A0FD5AC1EB37FBC000A4518 /* GT3Captcha.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A958B1E1E8D5B340030EBC3 /* GT3Captcha.framework */; };
+		7A0FD5AD1EB37FBC000A4518 /* GT3Captcha.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7A958B1E1E8D5B340030EBC3 /* GT3Captcha.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		7A4FC9711E814D600045C748 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A4FC9701E814D600045C748 /* main.m */; };
 		7A4FC9741E814D600045C748 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A4FC9731E814D600045C748 /* AppDelegate.m */; };
-		7A4FC9771E814D600045C748 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A4FC9761E814D600045C748 /* ViewController.m */; };
 		7A4FC97A1E814D600045C748 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A4FC9781E814D600045C748 /* Main.storyboard */; };
 		7A4FC97C1E814D600045C748 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7A4FC97B1E814D600045C748 /* Assets.xcassets */; };
 		7A4FC97F1E814D600045C748 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A4FC97D1E814D600045C748 /* LaunchScreen.storyboard */; };
@@ -19,13 +25,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		7A25AFE81EA886A80045E3DE /* Embed Frameworks */ = {
+		7A0FD5AE1EB37FBC000A4518 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				7A25AFE71EA886A80045E3DE /* GT3Captcha.framework in Embed Frameworks */,
+				7A0FD5AD1EB37FBC000A4518 /* GT3Captcha.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -33,12 +39,24 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		7A0FD5971EB37E51000A4518 /* CustomButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomButton.h; sourceTree = "<group>"; };
+		7A0FD5981EB37E51000A4518 /* CustomButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomButton.m; sourceTree = "<group>"; };
+		7A0FD5991EB37E51000A4518 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		7A0FD59A1EB37E51000A4518 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		7A0FD59B1EB37E51000A4518 /* NSAttributedString+AttributedString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSAttributedString+AttributedString.h"; sourceTree = "<group>"; };
+		7A0FD59C1EB37E51000A4518 /* NSAttributedString+AttributedString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSAttributedString+AttributedString.m"; sourceTree = "<group>"; };
+		7A0FD59D1EB37E51000A4518 /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
+		7A0FD59E1EB37E51000A4518 /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
+		7A0FD59F1EB37E51000A4518 /* TableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewController.h; sourceTree = "<group>"; };
+		7A0FD5A01EB37E51000A4518 /* TableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewController.m; sourceTree = "<group>"; };
+		7A0FD5A11EB37E51000A4518 /* TextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextField.h; sourceTree = "<group>"; };
+		7A0FD5A21EB37E51000A4518 /* TextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextField.m; sourceTree = "<group>"; };
+		7A0FD5A31EB37E51000A4518 /* TipsLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TipsLabel.h; sourceTree = "<group>"; };
+		7A0FD5A41EB37E51000A4518 /* TipsLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TipsLabel.m; sourceTree = "<group>"; };
 		7A4FC96C1E814D600045C748 /* GT3Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GT3Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A4FC9701E814D600045C748 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		7A4FC9721E814D600045C748 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		7A4FC9731E814D600045C748 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		7A4FC9751E814D600045C748 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		7A4FC9761E814D600045C748 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		7A4FC9791E814D600045C748 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7A4FC97B1E814D600045C748 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7A4FC97E1E814D600045C748 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -52,7 +70,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7A25AFE61EA886A80045E3DE /* GT3Captcha.framework in Frameworks */,
+				7A0FD5AC1EB37FBC000A4518 /* GT3Captcha.framework in Frameworks */,
 				7A958B1D1E8D5A850030EBC3 /* WebKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -83,12 +101,20 @@
 			children = (
 				7A4FC9721E814D600045C748 /* AppDelegate.h */,
 				7A4FC9731E814D600045C748 /* AppDelegate.m */,
-				7A4FC9751E814D600045C748 /* ViewController.h */,
-				7A4FC9761E814D600045C748 /* ViewController.m */,
-				7A4FC9781E814D600045C748 /* Main.storyboard */,
-				7A4FC97B1E814D600045C748 /* Assets.xcassets */,
-				7A4FC97D1E814D600045C748 /* LaunchScreen.storyboard */,
-				7A4FC9801E814D600045C748 /* Info.plist */,
+				7A0FD5971EB37E51000A4518 /* CustomButton.h */,
+				7A0FD5981EB37E51000A4518 /* CustomButton.m */,
+				7A0FD5991EB37E51000A4518 /* LoginViewController.h */,
+				7A0FD59A1EB37E51000A4518 /* LoginViewController.m */,
+				7A0FD59B1EB37E51000A4518 /* NSAttributedString+AttributedString.h */,
+				7A0FD59C1EB37E51000A4518 /* NSAttributedString+AttributedString.m */,
+				7A0FD59D1EB37E51000A4518 /* RegisterViewController.h */,
+				7A0FD59E1EB37E51000A4518 /* RegisterViewController.m */,
+				7A0FD59F1EB37E51000A4518 /* TableViewController.h */,
+				7A0FD5A01EB37E51000A4518 /* TableViewController.m */,
+				7A0FD5A11EB37E51000A4518 /* TextField.h */,
+				7A0FD5A21EB37E51000A4518 /* TextField.m */,
+				7A0FD5A31EB37E51000A4518 /* TipsLabel.h */,
+				7A0FD5A41EB37E51000A4518 /* TipsLabel.m */,
 				7A4FC96F1E814D600045C748 /* Supporting Files */,
 			);
 			path = GT3Exmaple;
@@ -97,6 +123,10 @@
 		7A4FC96F1E814D600045C748 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				7A4FC9781E814D600045C748 /* Main.storyboard */,
+				7A4FC97B1E814D600045C748 /* Assets.xcassets */,
+				7A4FC97D1E814D600045C748 /* LaunchScreen.storyboard */,
+				7A4FC9801E814D600045C748 /* Info.plist */,
 				7A4FC9701E814D600045C748 /* main.m */,
 			);
 			name = "Supporting Files";
@@ -120,7 +150,7 @@
 				7A4FC9681E814D600045C748 /* Sources */,
 				7A4FC9691E814D600045C748 /* Frameworks */,
 				7A4FC96A1E814D600045C748 /* Resources */,
-				7A25AFE81EA886A80045E3DE /* Embed Frameworks */,
+				7A0FD5AE1EB37FBC000A4518 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -183,9 +213,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7A4FC9771E814D600045C748 /* ViewController.m in Sources */,
+				7A0FD5A61EB37E51000A4518 /* LoginViewController.m in Sources */,
+				7A0FD5A81EB37E51000A4518 /* RegisterViewController.m in Sources */,
+				7A0FD5A51EB37E51000A4518 /* CustomButton.m in Sources */,
 				7A4FC9741E814D600045C748 /* AppDelegate.m in Sources */,
 				7A4FC9711E814D600045C748 /* main.m in Sources */,
+				7A0FD5A91EB37E51000A4518 /* TableViewController.m in Sources */,
+				7A0FD5AB1EB37E51000A4518 /* TipsLabel.m in Sources */,
+				7A0FD5A71EB37E51000A4518 /* NSAttributedString+AttributedString.m in Sources */,
+				7A0FD5AA1EB37E51000A4518 /* TextField.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

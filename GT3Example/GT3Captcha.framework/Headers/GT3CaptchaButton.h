@@ -79,7 +79,7 @@
  *  button object with the specified frame rectangle
  *
  *  @param frame            The frame rectangle for the button, measured in points.
- *  @param captchaManager   GTCaptchaManager instance.
+ *  @param captchaManager   GT3CaptchaManager instance.
  *  @return A initialized GTCaptchaButton object.
  */
 - (instancetype)initWithFrame:(CGRect)frame captchaManager:(GT3CaptchaManager *)captchaManager;
@@ -88,7 +88,7 @@
  *  @abstract Start Captcha.
  *
  *  @discussion
- *  Depending on captcha state, call GTCaptchaManager
+ *  Depending on captcha state, call GT3CaptchaManager
  *  instance method `startGTCaptchaWithAnimated:`, 
  *  `requestGTCaptcha`, `showGTViewIfRegiested` inner.
  */
@@ -97,10 +97,18 @@
 /**
  *  @abstract Stop Captcha.
  *
- *  @discussion Call GTCaptchaManager instance method 
+ *  @discussion Call GT3CaptchaManager instance method
  *  `stopGTCaptcha` inner.
  */
 - (void)stopCaptcha;
+
+/**
+ *  @abstract Reset Captcha.
+ *
+ *  @discussion Call GT3CaptchaManager instance method
+ *  `resetCaptcha` inner.
+ */
+- (void)resetCaptcha:(NSTimeInterval)delay;
 
 /**
  *  @abstract Update captcha button tips label instantly.

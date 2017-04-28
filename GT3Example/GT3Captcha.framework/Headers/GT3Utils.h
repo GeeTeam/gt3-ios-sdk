@@ -60,36 +60,6 @@ typedef NS_ENUM(NSInteger, GT3SecondaryCaptchaPolicy) {
 };
 
 /**
- *  展示方式
- */
-typedef NS_ENUM(NSInteger, GT3PresentType) {
-    /** Popup on the center of screen. <b>Default</b>. */
-    GT3PopupCenterType = 0,
-    /**
-     * @abstract Popup on the bottom of screen. <b>Portrait ONLY</b>.
-     *
-     * @discussion Close <b>geetest</b> if opened when detect the device orientated. You should open <b>geetest</b> again manually because of the <b>Challenge</b> can't be used twice in the same session.
-     */
-    GT3PopupBottomType
-};
-
-/**
- *  高度约束类型
- */
-typedef NS_ENUM(NSInteger, GT3ViewHeightConstraintType) {
-    /** Default Type */
-    GT3ViewHeightConstraintDefault,
-    /** Small View With Logo*/
-    GT3ViewHeightConstraintSmallViewWithLogo,
-    /** Small View With No Logo */
-    GT3ViewHeightConstraintSmallViewWithNoLogo,
-    /** Large View With Logo */
-    GT3ViewHeightConstraintLargeViewWithLogo,
-    /** Large View With No Logo */
-    GT3ViewHeightConstraintLargeViewWithNoLogo
-};
-
-/**
  *  图形验证的语言选项
  */
 typedef NS_ENUM(NSInteger, GT3LanguageType) {
@@ -113,18 +83,20 @@ typedef NS_ENUM(NSInteger, GT3LanguageType) {
  *  活动指示器类型
  */
 typedef NS_ENUM(NSInteger, GT3ActivityIndicatorType) {
-    /** System Indicator Type */
-    GT3IndicatorTypeSystem = 0,
     /** Geetest Defualt Indicator Type */
-    GT3IndicatorTypeDefault,
+    GT3IndicatorTypeDefault = 0,
+    /** System Indicator Type */
+    GT3IndicatorTypeSystem,
+    /** Cirle */
+    GT3IndicatorTypeCirle,
     /** Custom Indicator Type */
-    GT3IndicatorTypeCustom,
+    GT3IndicatorTypeCustom
 };
 
 /**
- *  关闭验证回调
+ *  验证默认回调
  */
-typedef void(^GT3CallCloseBlock)(void);
+typedef void(^GT3CaptchaDefaultBlock)(void);
 
 /**
  *  自定义状态指示器的动画实现block
