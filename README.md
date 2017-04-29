@@ -67,7 +67,7 @@ SDK接口文档见[接口文档](https://github.com/GeeTeam/gt3-ios-sdk/blob/dev
 
 ## 更新日志
 
-* **0.6.1:** 解决0.6.1版在部分情况下, 执行动画导致cpu高消费; 解决已发现在数据层面导致的服务端返回'runtime error'的问题
+* **0.6.2:** 解决0.6.1版在部分情况下, 执行动画导致cpu高消费; 解决已发现在数据层面导致的服务端返回'runtime error'的问题
 * **0.6.1:** 针对按钮绑定集成验证优化；针对反馈提供更多新接口；改善初始化体验；提供更详实的演示demo 
 * **0.5.7:** 修正`NSBundle`在非embedded binaries中的问题
 * **0.5.6:** 修改提示文案；`GTCaptchaManagerViewDelegate`方法更新；验证成功后再次验证只需要点击一次；
