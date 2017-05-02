@@ -14,8 +14,6 @@
 //网站主部署的二次验证的接口 (api_2)
 #define api_2 @"http://101.200.132.124:9977/gt/validate-test"
 
-#define GT3CaptchaStateKey @"captchaState"
-
 @interface CustomButton () <GT3CaptchaManagerDelegate, GT3CaptchaManagerViewDelegate>
 
 @property (nonatomic, strong) UIActivityIndicatorView *indicatorView;
@@ -24,7 +22,6 @@
 
 @property (nonatomic, strong) NSString *originalTitle;
 
-@property (nonatomic, assign) BOOL forceFlag;
 @property (nonatomic, assign) BOOL titleFlag;
 
 @end
@@ -52,14 +49,6 @@
     return _manager;
 }
 
-- (void)dealloc {
-    @try {
-        [self.manager removeObserver:self forKeyPath:GT3CaptchaStateKey];
-    } @catch (NSException *exception) {
-        //        NSLog(@"exception: %@", exception.description);
-    }
-}
-
 - (instancetype)init {
     self = [super init];
     
@@ -85,6 +74,7 @@
 - (void)_init {
     [self setUserInteractionEnabled:NO];
     self.indicatorView = [self createActivityIndicator];
+    [self showIndicator];
     // 必须调用, 用于注册获取验证初始化数据
     [self.manager registerCaptcha:^{
         [self removeIndicator];
@@ -95,7 +85,7 @@
 - (UIActivityIndicatorView *)createActivityIndicator {
     UIActivityIndicatorView *indicatorView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
     [indicatorView setHidesWhenStopped:YES];
-    [_indicatorView stopAnimating];
+    [indicatorView stopAnimating];
     
     return indicatorView;
 }
@@ -107,7 +97,6 @@
         }
     }
     [self.manager startGTCaptchaWithAnimated:YES];
-    self.forceFlag = YES;
 }
 
 - (void)stopCaptcha {
@@ -144,6 +133,7 @@
 
 - (void)gtCaptcha:(GT3CaptchaManager *)manager errorHandler:(GT3Error *)error {
     //处理验证中返回的错误
+    [TipsLabel showTipOnKeyWindow:[NSString stringWithFormat:@"验证发生错误\n%@", error.localizedDescription]];
     NSLog(@"\nerror: %@,\nmetadata: %@,\nmethod hint: %@", error.localizedDescription, [[NSString alloc] initWithData:error.metaData encoding:NSUTF8StringEncoding], error.gtDescription);
 }
 
