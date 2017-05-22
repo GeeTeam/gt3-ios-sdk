@@ -46,12 +46,17 @@
 + (instancetype)sharedGTManager;
 
 /**
- *  验证初始化方法
+ *  @abstract 验证初始化方法
+ *
+ *  @discussion 请不要在接口api_1和api_2的URL上带参数, 如果需要对api_1和api_2设置全局参数见`configureSuperProperty:`方法
+ *
+ *  @seealso `- (void)configureSuperProperty:(NSDictionary *)property;`
  *
  *  @param api_1    获取验证参数的接口
  *  @param api_2    进行二次验证的接口
  *  @param timeout  超时时长
  *  @return GT3CaptchaManager 实例
+ *
  */
 - (instancetype)initWithAPI1:(NSString *)api_1
                         API2:(NSString *)api_2
@@ -66,6 +71,17 @@
  *  ❗️<b>内部请求基于NSURLSeesion</b>
  */
 - (void)cancelRequest;
+
+/**
+ @abstract
+ 配置API1和API2请求的公共参数
+ 
+ @discussion
+ 以key 与 value 必须均为NSString类型, 最终以url encoding的方式放在API1和API2的请求参数中。
+
+ @param property 公共参数
+ */
+- (void)configureSuperProperty:(NSDictionary *)property;
 
 /**
  *  @abstract 自定义配置验证方法
@@ -85,19 +101,6 @@
              challenge:(NSString *)gt_challenge
                success:(NSNumber *)gt_success_code
               withAPI2:(NSString *)api_2;
-
-/**
- *  @abstract 配置状态指示器
- *
- *  @discussion
- *  为了能方便的调试动画,真机调试模拟低速网络 Settings->Developer
- *  ->Status->Enable->Edge(E网,2.5G😂)
- *
- *  @param animationBlock 自定义时需要实现的动画block,仅在type配置为GTIndicatorCustomType时才执行
- *  @param type           状态指示器的类型
- */
-- (void)configureAnimatedAcitvityIndicator:(GT3IndicatorAnimationViewBlock)animationBlock
-                         withIndicatorType:(GT3ActivityIndicatorType)type;
 
 /**
  *
@@ -170,6 +173,19 @@
 - (void)useGTViewWithTitle:(NSString *)title;
 
 /**
+ *  @abstract 配置状态指示器
+ *
+ *  @discussion
+ *  为了能方便的调试动画,真机调试模拟低速网络 Settings->Developer
+ *  ->Status->Enable->Edge(E网,2.5G😂)
+ *
+ *  @param animationBlock 自定义时需要实现的动画block,仅在type配置为GTIndicatorCustomType时才执行
+ *  @param type           状态指示器的类型
+ */
+- (void)useAnimatedAcitvityIndicator:(GT3IndicatorAnimationViewBlock)animationBlock
+                         withIndicatorType:(GT3ActivityIndicatorType)type;
+
+/**
  *  @abstract 配置背景模糊
  *
  *  @discussion
@@ -207,6 +223,13 @@
  *  @param disable YES忽略交互事件/NO接受交互事件
  */
 - (void)disableBackgroundUserInteraction:(BOOL)disable;
+
+/**
+ @abstract 控制验证管理器内部的网络可达性检测
+
+ @param enable YES 开启/NO 关闭. 默认YES.
+ */
+- (void)enableNetworkReachability:(BOOL)enable;
 
 /**
  *  @abstract Debug Mode

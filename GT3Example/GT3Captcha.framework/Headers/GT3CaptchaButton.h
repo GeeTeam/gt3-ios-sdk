@@ -36,7 +36,7 @@
  *  'waiting', 'collecting', 'computing', 'success', 
  *  'fail', 'error', 'cancel'.
  */
-@property (nonatomic, strong) NSDictionary<NSString *, NSAttributedString *> *tipsDict;
+@property (nonatomic, strong) NSMutableDictionary<NSString *, NSAttributedString *> *tipsDict;
 
 /**
  *  Captcha Button `backgroundColor`. Defaults to
