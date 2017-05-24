@@ -17,7 +17,7 @@
  */
 typedef NS_ENUM(NSInteger, GT3CaptchaState) {
     /** 验证未激活 */
-    GT3CaptchaStateInactive,
+    GT3CaptchaStateInactive = 0,
     /** 验证激活 */
     GT3CaptchaStateActive,
     /** 验证初始化中 */
