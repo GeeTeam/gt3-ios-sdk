@@ -37,6 +37,7 @@
         //创建验证管理器实例
         GT3CaptchaManager *captchaManager = [[GT3CaptchaManager alloc] initWithAPI1:api_1 API2:api_2 timeout:5.0];
         captchaManager.delegate = self;
+        captchaManager.maskColor = [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:0.6];
         
         //debug mode
 //        [captchaManager enableDebugMode:YES];
@@ -53,9 +54,12 @@
     [self _setup];
 }
 
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
+- (void)viewDidDisappear:(BOOL)animated {
+    if (self.flag) {
+        [[self captchaButton] stopCaptcha];
+    }
     
+    [super viewWillAppear:animated];
 }
 
 - (void)createCustomButton {
@@ -112,7 +116,7 @@
 - (void)createDefaultButton {
     
     //添加验证按钮到父视图上
-    self.captchaButton.center = CGPointMake(self.view.center.x, self.view.center.y + 74);
+    self.captchaButton.center = CGPointMake(self.view.center.x, self.view.center.y + 76);
     //推荐直接开启验证
     [self.captchaButton startCaptcha];
     [self.view addSubview:self.captchaButton];
@@ -130,7 +134,7 @@
         button.titleLabel.attributedText = attrString;
         [button setTitle:@"登录" forState:UIControlStateNormal];
         button.titleLabel.textColor = [UIColor whiteColor];
-        button.center = CGPointMake(self.view.center.x, self.view.center.y + 126);
+        button.center = CGPointMake(self.view.center.x, self.view.center.y + 130);
         
         [button addTarget:self action:@selector(login) forControlEvents:UIControlEventTouchUpInside];
         
@@ -165,14 +169,14 @@
         return YES;
     }
     else {
-        [TipsLabel showTipOnKeyWindow:@"请输入正确的邮箱或密码"];
+        [TipsLabel showTipOnKeyWindow:@"DEMO: 请输入正确的邮箱或密码"];
     }
     return NO;
 }
 
 - (void)captcha:(GT3CaptchaManager *)manager didReceiveSecondaryCaptchaData:(NSData *)data response:(NSURLResponse *)response error:(GT3Error *)error {
     //演示中全部默认为成功, 不对返回做判断
-    [TipsLabel showTipOnKeyWindow:@"登录成功"];
+    [TipsLabel showTipOnKeyWindow:@"DEMO: 登录成功"];
 }
 
 #pragma MARK - GT3CaptchaManagerDelegate
@@ -196,7 +200,7 @@
         //decisionHandler(GT3SecondaryCaptchaPolicyForbidden);
         
         if (!self.flag) {
-            [TipsLabel showTipOnKeyWindow:@"登入成功"];
+            [TipsLabel showTipOnKeyWindow:@"DEMO: 登入成功"];
         }
     }
     else {

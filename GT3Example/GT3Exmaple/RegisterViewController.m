@@ -37,11 +37,12 @@
         //创建验证管理器实例
         GT3CaptchaManager *captchaManager = [[GT3CaptchaManager alloc] initWithAPI1:api_1 API2:api_2 timeout:5.0];
         captchaManager.delegate = self;
+        captchaManager.maskColor = [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:0.6];
         
         //debug mode
 //        [captchaManager enableDebugMode:YES];
         //创建验证视图的实例
-        _captchaButton = [[GT3CaptchaButton alloc] initWithFrame:CGRectMake(0, 0, 260, 40) captchaManager:captchaManager];
+        _captchaButton = [[GT3CaptchaButton alloc] initWithFrame:CGRectMake(0, 0, 260, 44) captchaManager:captchaManager];
     }
     return _captchaButton;
 }
@@ -51,6 +52,14 @@
     self.view.backgroundColor = [UIColor whiteColor];
     
     [self _init];
+}
+
+- (void)viewDidDisappear:(BOOL)animated {
+    if (self.flag) {
+        [self.captchaButton stopCaptcha];
+    }
+    
+    [super viewDidDisappear:animated];
 }
 
 - (void)_init {
@@ -142,8 +151,8 @@
     button.titleLabel.attributedText = attrString;
     [button setTitle:@"登录" forState:UIControlStateNormal];
     button.titleLabel.textColor = [UIColor whiteColor];
-    CGFloat bias = self.flag ? 0.0 : -52.0;
-    button.center = CGPointMake(self.view.center.x, self.view.center.y + 126 + bias);
+    CGFloat bias = self.flag ? 0.0 : -56.0;
+    button.center = CGPointMake(self.view.center.x, self.view.center.y + 130 + bias);
     
     [button addTarget:self action:@selector(userRegister) forControlEvents:UIControlEventTouchUpInside];
     
@@ -161,7 +170,7 @@
 - (void)createDefaultButton {
     
     //添加验证按钮到父视图上
-    self.captchaButton.center = CGPointMake(self.view.center.x, self.view.center.y + 74);
+    self.captchaButton.center = CGPointMake(self.view.center.x, self.view.center.y + 76);
     //推荐直接开启验证
     [self.captchaButton startCaptcha];
     [self.view addSubview:self.captchaButton];
@@ -174,18 +183,18 @@
         return YES;
     }
     else {
-        [TipsLabel showTipOnKeyWindow:@"不合法的手机号"];
+        [TipsLabel showTipOnKeyWindow:@"DEMO: 不合法的手机号"];
     }
     return NO;
 }
 
 - (void)captcha:(GT3CaptchaManager *)manager didReceiveSecondaryCaptchaData:(NSData *)data response:(NSURLResponse *)response error:(GT3Error *)error {
     if ([self.phoneNumberTextField.text isEqualToString:@"12345678900"]) {
-        [TipsLabel showTipOnKeyWindow:@"已存在的手机号"];
+        [TipsLabel showTipOnKeyWindow:@"DEMO: 已存在的手机号"];
     }
     else {
         self.smsCodeTextField.text = @"88888888";
-        [TipsLabel showTipOnKeyWindow:@"获取短信验证码:88888888" fontSize:12];
+        [TipsLabel showTipOnKeyWindow:@"DEMO: 获取短信验证码:88888888" fontSize:12];
     }
 }
 
@@ -210,7 +219,7 @@
         //decisionHandler(GT3SecondaryCaptchaPolicyForbidden);
         
         if (!self.flag) {
-            [TipsLabel showTipOnKeyWindow:@"登入成功"];
+            [TipsLabel showTipOnKeyWindow:@"DEMO: 登入成功"];
         }
     }
     else {

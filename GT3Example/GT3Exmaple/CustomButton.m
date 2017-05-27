@@ -49,6 +49,10 @@
     return _manager;
 }
 
+- (void)dealloc {
+    [[self manager] stopGTCaptcha];
+}
+
 - (instancetype)init {
     self = [super init];
     
@@ -133,12 +137,12 @@
 
 - (void)gtCaptcha:(GT3CaptchaManager *)manager errorHandler:(GT3Error *)error {
     //处理验证中返回的错误
-    [TipsLabel showTipOnKeyWindow:[NSString stringWithFormat:@"验证发生错误\n%@", error.localizedDescription]];
+    [TipsLabel showTipOnKeyWindow:[NSString stringWithFormat:@"DEMO: 验证发生错误\n%@", error.localizedDescription]];
     NSLog(@"\nerror: %@,\nmetadata: %@,\nmethod hint: %@", error.localizedDescription, [[NSString alloc] initWithData:error.metaData encoding:NSUTF8StringEncoding], error.gtDescription);
 }
 
 - (void)gtCaptchaUserDidCloseGTView:(GT3CaptchaManager *)manager {
-    [TipsLabel showTipOnKeyWindow:@"验证已被取消"];
+    [TipsLabel showTipOnKeyWindow:@"DEMO: 验证已被取消"];
     NSLog(@"User Did Close GTView.");
 }
 
