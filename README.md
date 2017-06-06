@@ -67,6 +67,7 @@ SDK接口文档见[接口文档](https://github.com/GeeTeam/gt3-ios-sdk/blob/dev
 
 ## 更新日志
 
+* **0.7.4:** 改善数据采集
 * **0.7.2:** 改善数据交互; 增加forbidden事件;
 * **0.6.3:** 修复onepass下没有图形提示的问题; 修复因状态不一致导致的server返回'runtime error';
 * **0.6.2:** 解决0.6.1版在部分情况下, 执行动画导致cpu高消费; 解决已发现在数据层面导致的服务端返回'runtime error'的问题
