@@ -70,9 +70,9 @@ typedef NS_ENUM(NSInteger, GT3LanguageType) {
     /** Traditional Chinese */
     GT3LANGTYPE_ZH_HK,
     /** Korean */
-    GT3LANGTYPE_KO_KR,
+    GT3LANGTYPE_KO_KR,// 暂不支持
     /** Japenese */
-    GT3LANGTYPE_JA_JP,
+    GT3LANGTYPE_JA_JP,// 暂不支持
     /** English */
     GT3LANGTYPE_EN_US,
     /** System language*/
