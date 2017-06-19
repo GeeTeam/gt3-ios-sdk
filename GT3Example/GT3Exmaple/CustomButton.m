@@ -194,10 +194,6 @@
             break;
         }
     }
-    
-    if (error) {
-        [TipsView showTipOnKeyWindow:error.userInfo.description];
-    }
 }
 
 @end

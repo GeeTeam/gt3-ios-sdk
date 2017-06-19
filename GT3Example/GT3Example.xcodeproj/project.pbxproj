@@ -14,24 +14,24 @@
 		7A0FD5A91EB37E51000A4518 /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A0FD5A01EB37E51000A4518 /* TableViewController.m */; };
 		7A0FD5AA1EB37E51000A4518 /* TextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A0FD5A21EB37E51000A4518 /* TextField.m */; };
 		7A0FD5AB1EB37E51000A4518 /* TipsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A0FD5A41EB37E51000A4518 /* TipsView.m */; };
-		7A0FD5AC1EB37FBC000A4518 /* GT3Captcha.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A958B1E1E8D5B340030EBC3 /* GT3Captcha.framework */; };
-		7A0FD5AD1EB37FBC000A4518 /* GT3Captcha.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7A958B1E1E8D5B340030EBC3 /* GT3Captcha.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		7A4FC9711E814D600045C748 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A4FC9701E814D600045C748 /* main.m */; };
 		7A4FC9741E814D600045C748 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A4FC9731E814D600045C748 /* AppDelegate.m */; };
 		7A4FC97A1E814D600045C748 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A4FC9781E814D600045C748 /* Main.storyboard */; };
 		7A4FC97C1E814D600045C748 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7A4FC97B1E814D600045C748 /* Assets.xcassets */; };
 		7A4FC97F1E814D600045C748 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A4FC97D1E814D600045C748 /* LaunchScreen.storyboard */; };
+		7A9207EC1EF7A0A700781BFD /* GT3Captcha.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A958B1E1E8D5B340030EBC3 /* GT3Captcha.framework */; };
+		7A9207ED1EF7A0A700781BFD /* GT3Captcha.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7A958B1E1E8D5B340030EBC3 /* GT3Captcha.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		7A958B1D1E8D5A850030EBC3 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A958B1C1E8D5A850030EBC3 /* WebKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		7A0FD5AE1EB37FBC000A4518 /* Embed Frameworks */ = {
+		7A9207EE1EF7A0A700781BFD /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				7A0FD5AD1EB37FBC000A4518 /* GT3Captcha.framework in Embed Frameworks */,
+				7A9207ED1EF7A0A700781BFD /* GT3Captcha.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -70,7 +70,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7A0FD5AC1EB37FBC000A4518 /* GT3Captcha.framework in Frameworks */,
+				7A9207EC1EF7A0A700781BFD /* GT3Captcha.framework in Frameworks */,
 				7A958B1D1E8D5A850030EBC3 /* WebKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -150,7 +150,7 @@
 				7A4FC9681E814D600045C748 /* Sources */,
 				7A4FC9691E814D600045C748 /* Frameworks */,
 				7A4FC96A1E814D600045C748 /* Resources */,
-				7A0FD5AE1EB37FBC000A4518 /* Embed Frameworks */,
+				7A9207EE1EF7A0A700781BFD /* Embed Frameworks */,
 			);
 			buildRules = (
 			);

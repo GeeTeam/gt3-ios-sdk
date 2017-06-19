@@ -230,7 +230,7 @@
 }
 
 //- (NSDictionary *)gtCaptcha:(GT3CaptchaManager *)manager didReceiveDataFromAPI1:(NSDictionary *)dictionary withError:(GT3Error *)error {
-/// 处理API1返回的数据并将验证初始化数据解析给管理器
+    /// 处理API1返回的数据并将验证初始化数据解析给管理器
 //}
 
 - (void)didReceiveMemoryWarning {

@@ -16,14 +16,15 @@
     
     if (self) {
         self.delegate = self;
-        self.backgroundColor = [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:0.7];
-        self.frame = CGRectMake(0, 0, 210, 70);
-        self.text = tip;
-        self.attributedText = [NSAttributedString generate:tip fontSize:size color:[UIColor whiteColor]];
-        self.textColor = [UIColor whiteColor];
-        [self setClipsToBounds:YES];
-        self.layer.cornerRadius = 5.0;
-        self.textAlignment = NSTextAlignmentCenter;
+        dispatch_async(dispatch_get_main_queue(), ^{
+            self.backgroundColor = [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:0.7];
+            self.frame = CGRectMake(0, 0, 210, 70);
+            self.attributedText = [NSAttributedString generate:tip fontSize:size color:[UIColor whiteColor]];
+            self.textColor = [UIColor whiteColor];
+            [self setClipsToBounds:YES];
+            self.layer.cornerRadius = 5.0;
+            self.textAlignment = NSTextAlignmentCenter;
+        });
     }
     
     return self;
@@ -46,14 +47,16 @@
 }
 
 - (void)layoutTipsView {
-    UIControl *control = [[UIControl alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    [control addTarget:self action:@selector(userDidTouchControl) forControlEvents:UIControlEventTouchUpInside];
-    self.center = control.center;
-    [control addSubview:self];
-    
-    UIWindow *window = [[UIApplication sharedApplication].delegate window];
-    control.center = window.center;
-    [window addSubview:control];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        UIControl *control = [[UIControl alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+        [control addTarget:self action:@selector(userDidTouchControl) forControlEvents:UIControlEventTouchUpInside];
+        self.center = control.center;
+        [control addSubview:self];
+        
+        UIWindow *window = [[UIApplication sharedApplication].delegate window];
+        control.center = window.center;
+        [window addSubview:control];
+    });
 }
 
 - (void)userDidTouchControl {
