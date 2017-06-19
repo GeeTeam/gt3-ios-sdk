@@ -32,6 +32,8 @@ typedef NS_ENUM(NSInteger, GT3CaptchaState) {
     GT3CaptchaStateSuccess,
     /** 验证失败 */
     GT3CaptchaStateFail,
+    /** 验证取消 */
+    GT3CaptchaStateCancel,
     /** 验证发生错误 */
     GT3CaptchaStateError
 };

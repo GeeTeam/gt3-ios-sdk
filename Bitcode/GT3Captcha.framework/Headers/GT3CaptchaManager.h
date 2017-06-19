@@ -73,17 +73,6 @@
 - (void)cancelRequest;
 
 /**
- @abstract
- 配置API1和API2请求的公共参数
- 
- @discussion
- 以key 与 value 必须均为NSString类型, 最终以url encoding的方式放在API1和API2的请求参数中。
-
- @param property 公共参数
- */
-- (void)configureSuperProperty:(NSDictionary *)property;
-
-/**
  *  @abstract 自定义配置验证方法
  *
  *  @discussion
@@ -279,25 +268,25 @@
  *
  *  @discussion 调用此方法的时候必须执行<b>requestHandler</b>, 否则导致内存泄露
  *
- *  @param manager        验证管理器
- *  @param requestHandler 修改请求的执行block
+ *  @param manager         验证管理器
+ *  @param originalRequest 默认发送的请求对象
+ *  @param replacedHandler 修改请求的执行block
  */
-- (void)gtCaptcha:(GT3CaptchaManager *)manager willSendRequestAPI1:(void (^)(NSURLRequest * request))requestHandler;
+- (void)gtCaptcha:(GT3CaptchaManager *)manager willSendRequestAPI1:(NSURLRequest *)originalRequest withReplacedHandler:(void (^)(NSURLRequest * request))replacedHandler;
 
 /**
  *  @abstract 当接收到从<b>API1</b>的数据, 通知返回字典, 包括<b>gt_public_key</b>,
  *  <b>gt_challenge</b>, <b>gt_success_code</b>
  *
  *  @discussion
- *  只有仅当使用<b>configureGTest:API2:withTimeout:cookieName:</b>时,
- *  才会调用此方法. 如果是一层套嵌字典, 请在服务端设置对应<b>key</b>为<b>"gtcap"</b>, manager内
- *  部会自动解析出数据.
+ *  如果实现此方法, 需要解析验证需要的数据并返回。
+    如果不返回验证初始化数据, 使用内部的解析规则进行解析。默认先解析一级结构, 再匹配键名为"data"或"gtcap"中的数据。
  *
  *  @param manager      验证管理器
- *  @param dictionary   包含极验的验证数据
+ *  @param dictionary   API1返回的数据(未解析)
  *  @param error        返回的错误
  *
- *  返回验证数据示例
+ *  @return 验证初始化数据, 格式见下方
  <pre>
  {
  "challenge" : "12ae1159ffdfcbbc306897e8d9bf6d06",
@@ -306,7 +295,7 @@
  }
  </pre>
  */
-- (void)gtCaptcha:(GT3CaptchaManager *)manager didReceiveDataFromAPI1:(NSDictionary *)dictionary withError:(GT3Error *)error;
+- (NSDictionary *)gtCaptcha:(GT3CaptchaManager *)manager didReceiveDataFromAPI1:(NSDictionary *)dictionary withError:(GT3Error *)error;
 
 /**
  *  @abstract 通知接收到返回的验证交互结果
@@ -321,6 +310,16 @@
 - (void)gtCaptcha:(GT3CaptchaManager *)manager didReceiveCaptchaCode:(NSString *)code result:(NSDictionary *)result message:(NSString *)message;
 
 /**
+ *  @abstract 是否使用内部默认的API2请求逻辑
+ *
+ *  @discussion 默认返回YES;
+ *
+ *  @param manager 验证管理器
+ *  @return YES使用,NO不使用
+ */
+- (BOOL)shouldUseDefaultSecondaryValidate:(GT3CaptchaManager *)manager;
+
+/**
  *  @abstract 通知即将进行二次验证, 再次修改发送至<b>API2</b>的验证
  *
  *  @discussion
@@ -329,9 +328,9 @@
  *  <pre>{"Content-Type":@"application/x-www-form-urlencoded;charset=UTF-8"}</pre>
  *
  *  @param manager        验证管理器
- *  @param requestHandler 修改二次验证请求的block
+ *  @param replacedRequest 修改二次验证请求的block
  */
-- (void)gtCaptcha:(GT3CaptchaManager *)manager willSendSecondaryCaptchaRequest:(void (^)(NSMutableURLRequest * request))requestHandler;
+- (void)gtCaptcha:(GT3CaptchaManager *)manager willSendSecondaryCaptchaRequest:(NSURLRequest *)originalRequest withReplacedRequest:(void (^)(NSMutableURLRequest * request))replacedRequest;
 
 /**
  *  @abstract 用户主动关闭了验证码界面
@@ -359,10 +358,9 @@
  *
  *  @param manager 验证管理器
  *  @param state   验证状态
- *  @param tip     提示标题
- *  @param color   文字色彩
+ *  @param error   错误信息
  */
-- (void)gtCaptcha:(GT3CaptchaManager *)manager updateCaptchaStatus:(GT3CaptchaState)state tip:(NSString *)tip color:(UIColor *)color;
+- (void)gtCaptcha:(GT3CaptchaManager *)manager updateCaptchaStatus:(GT3CaptchaState)state error:(GT3Error *)error;
 
 /**
  *  更新验证视图
