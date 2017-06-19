@@ -12,7 +12,7 @@
 
 #import "CustomButton.h"
 #import "TextField.h"
-#import "TipsLabel.h"
+#import "TipsView.h"
 
 #import "NSAttributedString+AttributedString.h"
 
@@ -169,21 +169,21 @@
         return YES;
     }
     else {
-        [TipsLabel showTipOnKeyWindow:@"DEMO: 请输入正确的邮箱或密码"];
+        [TipsView showTipOnKeyWindow:@"DEMO: 请输入正确的邮箱或密码"];
     }
     return NO;
 }
 
 - (void)captcha:(GT3CaptchaManager *)manager didReceiveSecondaryCaptchaData:(NSData *)data response:(NSURLResponse *)response error:(GT3Error *)error {
     //演示中全部默认为成功, 不对返回做判断
-    [TipsLabel showTipOnKeyWindow:@"DEMO: 登录成功"];
+    [TipsView showTipOnKeyWindow:@"DEMO: 登录成功"];
 }
 
 #pragma MARK - GT3CaptchaManagerDelegate
 
 - (void)gtCaptcha:(GT3CaptchaManager *)manager errorHandler:(GT3Error *)error {
     //处理验证中返回的错误
-    NSLog(@"\nerror: %@,\nmetadata: %@,\nmethod hint: %@", error.localizedDescription, [[NSString alloc] initWithData:error.metaData encoding:NSUTF8StringEncoding], error.gtDescription);
+    [TipsView showTipOnKeyWindow:error.userInfo.description fontSize:12.0];
 }
 
 - (void)gtCaptchaUserDidCloseGTView:(GT3CaptchaManager *)manager {
@@ -200,24 +200,19 @@
         //decisionHandler(GT3SecondaryCaptchaPolicyForbidden);
         
         if (!self.flag) {
-            [TipsLabel showTipOnKeyWindow:@"DEMO: 登入成功"];
+            [TipsView showTipOnKeyWindow:@"DEMO: 登入成功"];
         }
     }
     else {
         //二次验证发生错误
         decisionHandler(GT3SecondaryCaptchaPolicyForbidden);
-        NSLog(@"validate error: %ld, %@", (long)error.code, error.localizedDescription);
+        [TipsView showTipOnKeyWindow:error.userInfo.description fontSize:12.0];
     }
 }
 
-- (void)gtCaptcha:(GT3CaptchaManager *)manager didReceiveDataFromAPI1:(NSDictionary *)dictionary withError:(GT3Error *)error {
-    if (!error) {
-        NSLog(@"\n%@", dictionary);
-    }
-    else {
-        NSLog(@"error: %@", error.localizedDescription);
-    }
-}
+//- (NSDictionary *)gtCaptcha:(GT3CaptchaManager *)manager didReceiveDataFromAPI1:(NSDictionary *)dictionary withError:(GT3Error *)error {
+    /// 处理API1返回的数据并将验证初始化数据解析给管理器
+//}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

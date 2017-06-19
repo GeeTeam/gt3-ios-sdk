@@ -13,7 +13,7 @@
 		7A0FD5A81EB37E51000A4518 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A0FD59E1EB37E51000A4518 /* RegisterViewController.m */; };
 		7A0FD5A91EB37E51000A4518 /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A0FD5A01EB37E51000A4518 /* TableViewController.m */; };
 		7A0FD5AA1EB37E51000A4518 /* TextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A0FD5A21EB37E51000A4518 /* TextField.m */; };
-		7A0FD5AB1EB37E51000A4518 /* TipsLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A0FD5A41EB37E51000A4518 /* TipsLabel.m */; };
+		7A0FD5AB1EB37E51000A4518 /* TipsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A0FD5A41EB37E51000A4518 /* TipsView.m */; };
 		7A0FD5AC1EB37FBC000A4518 /* GT3Captcha.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A958B1E1E8D5B340030EBC3 /* GT3Captcha.framework */; };
 		7A0FD5AD1EB37FBC000A4518 /* GT3Captcha.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7A958B1E1E8D5B340030EBC3 /* GT3Captcha.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		7A4FC9711E814D600045C748 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A4FC9701E814D600045C748 /* main.m */; };
@@ -51,8 +51,8 @@
 		7A0FD5A01EB37E51000A4518 /* TableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewController.m; sourceTree = "<group>"; };
 		7A0FD5A11EB37E51000A4518 /* TextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextField.h; sourceTree = "<group>"; };
 		7A0FD5A21EB37E51000A4518 /* TextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextField.m; sourceTree = "<group>"; };
-		7A0FD5A31EB37E51000A4518 /* TipsLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TipsLabel.h; sourceTree = "<group>"; };
-		7A0FD5A41EB37E51000A4518 /* TipsLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TipsLabel.m; sourceTree = "<group>"; };
+		7A0FD5A31EB37E51000A4518 /* TipsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TipsView.h; sourceTree = "<group>"; };
+		7A0FD5A41EB37E51000A4518 /* TipsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TipsView.m; sourceTree = "<group>"; };
 		7A4FC96C1E814D600045C748 /* GT3Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GT3Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A4FC9701E814D600045C748 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		7A4FC9721E814D600045C748 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -113,8 +113,8 @@
 				7A0FD5A01EB37E51000A4518 /* TableViewController.m */,
 				7A0FD5A11EB37E51000A4518 /* TextField.h */,
 				7A0FD5A21EB37E51000A4518 /* TextField.m */,
-				7A0FD5A31EB37E51000A4518 /* TipsLabel.h */,
-				7A0FD5A41EB37E51000A4518 /* TipsLabel.m */,
+				7A0FD5A31EB37E51000A4518 /* TipsView.h */,
+				7A0FD5A41EB37E51000A4518 /* TipsView.m */,
 				7A4FC96F1E814D600045C748 /* Supporting Files */,
 			);
 			path = GT3Exmaple;
@@ -219,7 +219,7 @@
 				7A4FC9741E814D600045C748 /* AppDelegate.m in Sources */,
 				7A4FC9711E814D600045C748 /* main.m in Sources */,
 				7A0FD5A91EB37E51000A4518 /* TableViewController.m in Sources */,
-				7A0FD5AB1EB37E51000A4518 /* TipsLabel.m in Sources */,
+				7A0FD5AB1EB37E51000A4518 /* TipsView.m in Sources */,
 				7A0FD5A71EB37E51000A4518 /* NSAttributedString+AttributedString.m in Sources */,
 				7A0FD5AA1EB37E51000A4518 /* TextField.m in Sources */,
 			);

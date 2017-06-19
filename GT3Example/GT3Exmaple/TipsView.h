@@ -1,5 +1,5 @@
 //
-//  TipsLabel.h
+//  TipsView.h
 //  gt-captcha3-ios-example
 //
 //  Created by NikoXu on 27/04/2017.
@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TipsLabel : UILabel
+@interface TipsView : UITextView <UITextViewDelegate>
 
 + (void)showTipOnKeyWindow:(NSString *)tip;
 + (void)showTipOnKeyWindow:(NSString *)tip fontSize:(CGFloat)size;

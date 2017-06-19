@@ -7,7 +7,7 @@
 //
 
 #import "TextField.h"
-#import "TipsLabel.h"
+#import "TipsView.h"
 
 @interface TextField () <UITextFieldDelegate>
 
@@ -68,11 +68,11 @@
     [textField resignFirstResponder];
     
     if (textField.text.length == 0 || [textField.text isEqualToString:textField.placeholder]) {
-        [TipsLabel showTipOnKeyWindow:[NSString stringWithFormat:@"请输入正确的%@", textField.attributedPlaceholder.string]];
+        [TipsView showTipOnKeyWindow:[NSString stringWithFormat:@"请输入正确的%@", textField.attributedPlaceholder.string]];
         return NO;
     }
     else if (textField.text.length < 8) {
-        [TipsLabel showTipOnKeyWindow:[NSString stringWithFormat:@"请输入正确的%@", textField.attributedPlaceholder.string]];
+        [TipsView showTipOnKeyWindow:[NSString stringWithFormat:@"请输入正确的%@", textField.attributedPlaceholder.string]];
         return NO;
     }
     else if (textField.text.length < self.lengthLimit) {
@@ -80,7 +80,7 @@
         return YES;
     }
     else {
-        [TipsLabel showTipOnKeyWindow:[NSString stringWithFormat:@"请输入正确的%@", textField.attributedPlaceholder.string]];
+        [TipsView showTipOnKeyWindow:[NSString stringWithFormat:@"请输入正确的%@", textField.attributedPlaceholder.string]];
         return NO;
     }
 }

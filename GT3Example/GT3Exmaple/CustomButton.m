@@ -7,7 +7,7 @@
 //
 
 #import "CustomButton.h"
-#import "TipsLabel.h"
+#import "TipsView.h"
 
 //网站主部署的用于验证注册的接口 (api_1)
 #define api_1 @"https://www.geetest.com/demo/gt/register-test"
@@ -137,12 +137,11 @@
 
 - (void)gtCaptcha:(GT3CaptchaManager *)manager errorHandler:(GT3Error *)error {
     //处理验证中返回的错误
-    [TipsLabel showTipOnKeyWindow:[NSString stringWithFormat:@"DEMO: 验证发生错误\n%@", error.localizedDescription]];
-    NSLog(@"\nerror: %@,\nmetadata: %@,\nmethod hint: %@", error.localizedDescription, [[NSString alloc] initWithData:error.metaData encoding:NSUTF8StringEncoding], error.gtDescription);
+    [TipsView showTipOnKeyWindow:error.userInfo.description fontSize:12.0];
 }
 
 - (void)gtCaptchaUserDidCloseGTView:(GT3CaptchaManager *)manager {
-    [TipsLabel showTipOnKeyWindow:@"DEMO: 验证已被取消"];
+    [TipsView showTipOnKeyWindow:@"DEMO: 验证已被取消"];
     NSLog(@"User Did Close GTView.");
 }
 
@@ -159,25 +158,20 @@
     else {
         //二次验证发生错误
         decisionHandler(GT3SecondaryCaptchaPolicyForbidden);
-        NSLog(@"validate error: %ld, %@", (long)error.code, error.localizedDescription);
+        [TipsView showTipOnKeyWindow:error.userInfo.description fontSize:12.0];
     }
     if (_delegate && [_delegate respondsToSelector:@selector(captcha:didReceiveSecondaryCaptchaData:response:error:)]) {
         [_delegate captcha:manager didReceiveSecondaryCaptchaData:data response:response error:error];
     }
 }
 
-- (void)gtCaptcha:(GT3CaptchaManager *)manager didReceiveDataFromAPI1:(NSDictionary *)dictionary withError:(GT3Error *)error {
-    if (!error) {
-        NSLog(@"\n%@", dictionary);
-    }
-    else {
-        NSLog(@"error: %@", error.localizedDescription);
-    }
-}
+//- (NSDictionary *)gtCaptcha:(GT3CaptchaManager *)manager didReceiveDataFromAPI1:(NSDictionary *)dictionary withError:(GT3Error *)error {
+    /// 处理API1返回的数据并将验证初始化数据解析给管理器
+//}
 
 #pragma mark GT3CaptchaManagerViewDelegate
 
-- (void)gtCaptcha:(GT3CaptchaManager *)manager updateCaptchaStatus:(GT3CaptchaState)state tip:(NSString *)tip color:(UIColor *)color {
+- (void)gtCaptcha:(GT3CaptchaManager *)manager updateCaptchaStatus:(GT3CaptchaState)state error:(GT3Error *)error {
     
     switch (state) {
         case GT3CaptchaStateComputing: {
@@ -186,6 +180,7 @@
         }
         case GT3CaptchaStateWaiting:
         case GT3CaptchaStateCollecting:
+        case GT3CaptchaStateCancel:
         case GT3CaptchaStateFail:
         case GT3CaptchaStateError:
         case GT3CaptchaStateSuccess: {
@@ -198,6 +193,10 @@
         default: {
             break;
         }
+    }
+    
+    if (error) {
+        [TipsView showTipOnKeyWindow:error.userInfo.description];
     }
 }
 
