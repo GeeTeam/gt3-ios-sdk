@@ -67,6 +67,7 @@ SDK接口文档见[接口文档](https://github.com/GeeTeam/gt3-ios-sdk/blob/dev
 
 ## 更新日志
 
+* **0.7.10:** 错误统一; ui逻辑调整;
 * **0.7.6:** 改善数据; 其他问题修复;
 * **0.7.2:** 改善数据交互; 增加forbidden事件;
 * **0.6.3:** 修复onepass下没有图形提示的问题; 修复因状态不一致导致的server返回'runtime error';
