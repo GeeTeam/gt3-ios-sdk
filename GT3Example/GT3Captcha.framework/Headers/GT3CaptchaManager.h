@@ -354,6 +354,13 @@
 - (void)gtCaptcha:(GT3CaptchaManager *)manager notifyCaptchaMode:(GT3CaptchaMode)mode;
 
 /**
+ *  通知将要显示图形验证
+ *
+ *  @param manager 验证管理器
+ */
+- (void)gtCaptchaWillShowGTView:(GT3CaptchaManager *)manager;
+
+/**
  *  更新验证状态
  *
  *  @param manager 验证管理器
