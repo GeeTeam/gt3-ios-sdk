@@ -54,14 +54,6 @@
     [self _setup];
 }
 
-- (void)viewDidDisappear:(BOOL)animated {
-    if (self.flag) {
-        [[self captchaButton] stopCaptcha];
-    }
-    
-    [super viewWillAppear:animated];
-}
-
 - (void)createCustomButton {
     
     CustomButton *yourButton = [[CustomButton alloc] initWithFrame:CGRectMake(0, 0, 120, 44)];
@@ -185,7 +177,10 @@
 - (void)gtCaptcha:(GT3CaptchaManager *)manager errorHandler:(GT3Error *)error {
     //处理验证中返回的错误
     if (error.code == -999) {
-        // 请求被意外中断, 可忽略错误
+        // 请求被意外中断, 一般由用户进行取消操作导致, 可忽略错误
+    }
+    else if (error.code == -10) {
+        // 预判断时被封禁, 不会再进行图形验证
     }
     else if (error.code == -20) {
         // 尝试过多

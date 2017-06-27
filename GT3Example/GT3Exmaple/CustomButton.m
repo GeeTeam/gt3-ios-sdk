@@ -44,13 +44,8 @@
         
 //        [_manager enableDebugMode:YES];
         [_manager useVisualViewWithEffect:[UIBlurEffect effectWithStyle:UIBlurEffectStyleDark]];
-//        _manager.maskColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.4];
     }
     return _manager;
-}
-
-- (void)dealloc {
-    [[self manager] stopGTCaptcha];
 }
 
 - (instancetype)init {
@@ -78,10 +73,8 @@
 - (void)_init {
     [self setUserInteractionEnabled:NO];
     self.indicatorView = [self createActivityIndicator];
-    [self showIndicator];
     // 必须调用, 用于注册获取验证初始化数据
     [self.manager registerCaptcha:^{
-        [self removeIndicator];
         [self setUserInteractionEnabled:YES];
     }];
 }
@@ -138,7 +131,10 @@
 - (void)gtCaptcha:(GT3CaptchaManager *)manager errorHandler:(GT3Error *)error {
     //处理验证中返回的错误
     if (error.code == -999) {
-        // 请求被意外中断, 可忽略错误
+        // 请求被意外中断, 一般由用户进行取消操作导致, 可忽略错误
+    }
+    else if (error.code == -10) {
+        // 预判断时被封禁, 不会再进行图形验证
     }
     else if (error.code == -20) {
         // 尝试过多
@@ -241,22 +237,22 @@
 - (void)gtCaptcha:(GT3CaptchaManager *)manager updateCaptchaStatus:(GT3CaptchaState)state error:(GT3Error *)error {
     
     switch (state) {
+        case GT3CaptchaStateInactive:
+        case GT3CaptchaStateActive:
         case GT3CaptchaStateComputing: {
             [self showIndicator];
             break;
         }
-        case GT3CaptchaStateWaiting:
-        case GT3CaptchaStateCollecting:
-        case GT3CaptchaStateCancel:
+        case GT3CaptchaStateInitial:
         case GT3CaptchaStateFail:
         case GT3CaptchaStateError:
-        case GT3CaptchaStateSuccess: {
+        case GT3CaptchaStateSuccess:
+        case GT3CaptchaStateCancel: {
             [self removeIndicator];
             break;
         }
-        case GT3CaptchaStateInactive:
-        case GT3CaptchaStateActive:
-        case GT3CaptchaStateInitial:
+        case GT3CaptchaStateWaiting:
+        case GT3CaptchaStateCollecting:
         default: {
             break;
         }
