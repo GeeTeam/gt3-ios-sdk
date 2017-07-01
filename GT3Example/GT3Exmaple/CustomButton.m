@@ -101,21 +101,25 @@
 }
 
 - (void)showIndicator {
-    self.originalTitle = self.titleLabel.text;
-    self.titleFlag = YES;
-    [self setTitle:@"" forState:UIControlStateNormal];
-    self.titleFlag = NO;
-    [self setUserInteractionEnabled:NO];
-    self.indicatorView.translatesAutoresizingMaskIntoConstraints = NO;
-    [self addSubview:self.indicatorView];
-    [self centerActivityIndicatorInButton];
-    [self.indicatorView startAnimating];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        self.originalTitle = self.titleLabel.text;
+        self.titleFlag = YES;
+        [self setTitle:@"" forState:UIControlStateNormal];
+        self.titleFlag = NO;
+        [self setUserInteractionEnabled:NO];
+        self.indicatorView.translatesAutoresizingMaskIntoConstraints = NO;
+        [self addSubview:self.indicatorView];
+        [self centerActivityIndicatorInButton];
+        [self.indicatorView startAnimating];
+    });
 }
 
 - (void)removeIndicator {
-    [self setTitle:self.originalTitle forState:UIControlStateNormal];
-    [self setUserInteractionEnabled:YES];
-    [self.indicatorView removeFromSuperview];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self setTitle:self.originalTitle forState:UIControlStateNormal];
+        [self setUserInteractionEnabled:YES];
+        [self.indicatorView removeFromSuperview];
+    });
 }
 
 - (void)centerActivityIndicatorInButton {
@@ -142,7 +146,7 @@
     else {
         // 网络问题或解析失败, 更多错误码参考开发文档
     }
-    [TipsView showTipOnKeyWindow:error.userInfo.description fontSize:12.0];
+    [TipsView showTipOnKeyWindow:error.error_code fontSize:12.0];
 }
 
 - (void)gtCaptchaUserDidCloseGTView:(GT3CaptchaManager *)manager {
@@ -163,7 +167,7 @@
     else {
         //二次验证发生错误
         decisionHandler(GT3SecondaryCaptchaPolicyForbidden);
-        [TipsView showTipOnKeyWindow:error.userInfo.description fontSize:12.0];
+        [TipsView showTipOnKeyWindow:error.error_code fontSize:12.0];
     }
     if (_delegate && [_delegate respondsToSelector:@selector(captcha:didReceiveSecondaryCaptchaData:response:error:)]) {
         [_delegate captcha:manager didReceiveSecondaryCaptchaData:data response:response error:error];

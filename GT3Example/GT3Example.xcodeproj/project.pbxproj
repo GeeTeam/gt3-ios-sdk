@@ -19,19 +19,19 @@
 		7A4FC97A1E814D600045C748 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A4FC9781E814D600045C748 /* Main.storyboard */; };
 		7A4FC97C1E814D600045C748 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7A4FC97B1E814D600045C748 /* Assets.xcassets */; };
 		7A4FC97F1E814D600045C748 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A4FC97D1E814D600045C748 /* LaunchScreen.storyboard */; };
-		7A9207EC1EF7A0A700781BFD /* GT3Captcha.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A958B1E1E8D5B340030EBC3 /* GT3Captcha.framework */; };
-		7A9207ED1EF7A0A700781BFD /* GT3Captcha.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7A958B1E1E8D5B340030EBC3 /* GT3Captcha.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		7A958B1D1E8D5A850030EBC3 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A958B1C1E8D5A850030EBC3 /* WebKit.framework */; };
+		7A9D640B1F06325B007B6C07 /* GT3Captcha.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A958B1E1E8D5B340030EBC3 /* GT3Captcha.framework */; };
+		7A9D640C1F06325B007B6C07 /* GT3Captcha.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7A958B1E1E8D5B340030EBC3 /* GT3Captcha.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		7A9207EE1EF7A0A700781BFD /* Embed Frameworks */ = {
+		7A9D640D1F06325B007B6C07 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				7A9207ED1EF7A0A700781BFD /* GT3Captcha.framework in Embed Frameworks */,
+				7A9D640C1F06325B007B6C07 /* GT3Captcha.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -70,7 +70,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7A9207EC1EF7A0A700781BFD /* GT3Captcha.framework in Frameworks */,
+				7A9D640B1F06325B007B6C07 /* GT3Captcha.framework in Frameworks */,
 				7A958B1D1E8D5A850030EBC3 /* WebKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -150,7 +150,7 @@
 				7A4FC9681E814D600045C748 /* Sources */,
 				7A4FC9691E814D600045C748 /* Frameworks */,
 				7A4FC96A1E814D600045C748 /* Resources */,
-				7A9207EE1EF7A0A700781BFD /* Embed Frameworks */,
+				7A9D640D1F06325B007B6C07 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);

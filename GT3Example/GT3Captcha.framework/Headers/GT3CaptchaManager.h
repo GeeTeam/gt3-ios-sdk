@@ -48,9 +48,9 @@
 /**
  *  @abstract 验证初始化方法
  *
- *  @discussion 请不要在接口api_1和api_2的URL上带参数, 如果需要对api_1和api_2设置全局参数见`configureSuperProperty:`方法
+ *  @discussion 请不要在接口api_1和api_2的URL上带动态参数, 如果需要对api_1和api_2的请求做修改见GT3CaptchaManagerDelegate代理方法`gtCaptcha:willSendRequestAPI1:withReplacedHandler:`及 `gtCaptcha:willSendSecondaryCaptchaRequest:withReplacedRequest:`
  *
- *  @seealso `- (void)configureSuperProperty:(NSDictionary *)property;`
+ *  @seealso `gtCaptcha:willSendRequestAPI1:withReplacedHandler:`及`gtCaptcha:willSendSecondaryCaptchaRequest:withReplacedRequest:`
  *
  *  @param api_1    获取验证参数的接口
  *  @param api_2    进行二次验证的接口
@@ -263,6 +263,15 @@
 - (void)gtCaptcha:(GT3CaptchaManager *)manager didReceiveSecondaryCaptchaData:(NSData *)data response:(NSURLResponse *)response error:(GT3Error *)error decisionHandler:(void (^)(GT3SecondaryCaptchaPolicy captchaPolicy))decisionHandler;
 
 @optional
+
+/**
+ *  @abstract 是否使用内部默认的API1请求逻辑
+ *
+ *  @param manager 验证管理器
+ *  @return YES使用,NO不使用
+ */
+- (BOOL)shouldUseDefaultRegisterAPI:(GT3CaptchaManager *)manager;
+
 /**
  *  @abstract 将要向<b>API1</b>发送请求的时候调用此方法, 通过此方法可以修改将要发送的请求
  *

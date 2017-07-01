@@ -37,8 +37,10 @@ typedef NS_ENUM(NSUInteger, GT3ErrorType) {
 
 /** 发生错误时接收到的元数据, 没有数据则为nil */
 @property (nonatomic, readonly, strong) NSData * _Nullable metaData;
+/** 用于定位极验问题的错误码 */
+@property (nonatomic, strong, readonly) NSString *error_code;
 /** 极验的额外错误信息, 返回userInfo */
-@property (nonatomic, readonly, strong) NSString * gtDescription;
+@property (nonatomic, readonly, strong) NSString *gtDescription;
 
 /** 原始的error */
 @property (nonatomic, readonly, strong) NSError * _Nullable originalError;

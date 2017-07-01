@@ -207,7 +207,7 @@
     else {
         // 网络问题或解析失败, 更多错误码参考开发文档
     }
-    [TipsView showTipOnKeyWindow:error.userInfo.description fontSize:12.0];
+    [TipsView showTipOnKeyWindow:error.error_code fontSize:12.0];
 }
 
 - (void)gtCaptchaUserDidCloseGTView:(GT3CaptchaManager *)manager {
@@ -230,7 +230,7 @@
     else {
         //二次验证发生错误
         decisionHandler(GT3SecondaryCaptchaPolicyForbidden);
-        [TipsView showTipOnKeyWindow:error.userInfo.description fontSize:12.0];
+        [TipsView showTipOnKeyWindow:error.error_code fontSize:12.0];
     }
 }
 
