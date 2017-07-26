@@ -73,12 +73,10 @@
 - (void)cancelRequest;
 
 /**
- *  @abstract 自定义配置验证方法
+ *  @abstract 自定义配置验证参数
  *
  *  @discussion
- *  当网站主使用自己的failback逻辑的时候使用此方法开启验证
- *  使用此方法之前，网站主必须在服务端通过心跳检测geetest服务可用后通知客户端, 
- *  同时单个challenge只能使用在同一次验证会话中
+ *  从后端sdk获取的验证参数, 其中单个challenge只能使用在同一次验证会话中
  *
  *  @param gt_public_key    在官网申请的captcha_id
  *  @param gt_challenge     根据极验服务器sdk生成的challenge
@@ -120,14 +118,12 @@
  *  @abstract 重置验证
  *
  *  @discussion
- *  内部先调用`stopGTCaptcha`后, 在主线程延迟delay秒后
- *  执行`startGTCaptchaWithAnimated:`。
+ *  内部先调用`stopGTCaptcha`后, 在主线程延迟0.3秒后
+ *  执行`startCaptcha`的内部方法。
  *  只在`GT3CaptchaStateFail`,`GT3CaptchaStateError`,
  *  `GT3CaptchaStateSuccess`状态下执行。
- *
- *  @param delay 重置延迟
  */
-- (void)resetGTCaptcha:(NSTimeInterval)delay;
+- (void)resetGTCaptcha;
 
 /**
  *  若验证显示则关闭验证界面
@@ -214,9 +210,9 @@
 - (void)disableBackgroundUserInteraction:(BOOL)disable;
 
 /**
- @abstract 控制验证管理器内部的网络可达性检测
-
- @param enable YES 开启/NO 关闭. 默认YES.
+ *  @abstract 控制验证管理器内部的网络可达性检测
+ *
+ *  @param enable YES 开启/NO 关闭. 默认YES.
  */
 - (void)enableNetworkReachability:(BOOL)enable;
 

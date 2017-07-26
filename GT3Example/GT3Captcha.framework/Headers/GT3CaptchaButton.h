@@ -108,7 +108,7 @@
  *  @discussion Call GT3CaptchaManager instance method
  *  `resetCaptcha` inner.
  */
-- (void)resetCaptcha:(NSTimeInterval)delay;
+- (void)resetCaptcha;
 
 /**
  *  @abstract Update captcha button tips label instantly.
