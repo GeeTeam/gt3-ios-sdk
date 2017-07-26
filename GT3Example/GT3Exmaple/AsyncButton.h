@@ -1,8 +1,8 @@
 //
-//  CustomButton.h
+//  AsyncButton.h
 //  gt-captcha3-ios-example
 //
-//  Created by NikoXu on 08/04/2017.
+//  Created by NikoXu on 25/05/2017.
 //  Copyright © 2017 Xniko. All rights reserved.
 //
 
@@ -13,9 +13,9 @@
 @protocol CaptchaButtonDelegate;
 
 /**
- 自定按钮与验证事件绑定
+ 自定义api1和api2的处理, 并使用的自定义按钮, 使用此文件请充分测试业务场景下的极端环境
  */
-@interface CustomButton : UIButton
+@interface AsyncButton : UIButton
 
 @property (nonatomic, weak) id<CaptchaButtonDelegate> delegate;
 
@@ -27,8 +27,9 @@
 @protocol CaptchaButtonDelegate <NSObject>
 
 @optional
-- (BOOL)captchaButtonShouldBeginTapAction:(CustomButton *)button;
+- (BOOL)captchaButtonShouldBeginTapAction:(AsyncButton *)button;
 - (void)captcha:(GT3CaptchaManager *)manager didReceiveSecondaryCaptchaData:(NSData *)data response:(NSURLResponse *)response error:(GT3Error *)error;
 - (void)captcha:(GT3CaptchaManager *)manager errorHandler:(GT3Error *)error;
+
 
 @end

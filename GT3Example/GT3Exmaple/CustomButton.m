@@ -12,7 +12,7 @@
 //网站主部署的用于验证注册的接口 (api_1)
 #define api_1 @"https://www.geetest.com/demo/gt/register-fullpage"
 //网站主部署的二次验证的接口 (api_2)
-#define api_2 @"http://101.200.132.124:9977/gt/validate-fullpage"
+#define api_2 @"http://www.geetest.com/demo/gt/validate-fullpage"
 
 @interface CustomButton () <GT3CaptchaManagerDelegate, GT3CaptchaManagerViewDelegate>
 

@@ -20,6 +20,7 @@
 		7A4FC97C1E814D600045C748 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7A4FC97B1E814D600045C748 /* Assets.xcassets */; };
 		7A4FC97F1E814D600045C748 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A4FC97D1E814D600045C748 /* LaunchScreen.storyboard */; };
 		7A958B1D1E8D5A850030EBC3 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A958B1C1E8D5A850030EBC3 /* WebKit.framework */; };
+		7A9BA10C1F289D5700FB2336 /* AsyncButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A9BA10B1F289D5700FB2336 /* AsyncButton.m */; };
 		7A9D640B1F06325B007B6C07 /* GT3Captcha.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A958B1E1E8D5B340030EBC3 /* GT3Captcha.framework */; };
 		7A9D640C1F06325B007B6C07 /* GT3Captcha.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7A958B1E1E8D5B340030EBC3 /* GT3Captcha.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
@@ -63,6 +64,8 @@
 		7A4FC9801E814D600045C748 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7A958B1C1E8D5A850030EBC3 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		7A958B1E1E8D5B340030EBC3 /* GT3Captcha.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GT3Captcha.framework; sourceTree = "<group>"; };
+		7A9BA10A1F289D5700FB2336 /* AsyncButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsyncButton.h; sourceTree = "<group>"; };
+		7A9BA10B1F289D5700FB2336 /* AsyncButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsyncButton.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +106,8 @@
 				7A4FC9731E814D600045C748 /* AppDelegate.m */,
 				7A0FD5971EB37E51000A4518 /* CustomButton.h */,
 				7A0FD5981EB37E51000A4518 /* CustomButton.m */,
+				7A9BA10A1F289D5700FB2336 /* AsyncButton.h */,
+				7A9BA10B1F289D5700FB2336 /* AsyncButton.m */,
 				7A0FD5991EB37E51000A4518 /* LoginViewController.h */,
 				7A0FD59A1EB37E51000A4518 /* LoginViewController.m */,
 				7A0FD59B1EB37E51000A4518 /* NSAttributedString+AttributedString.h */,
@@ -213,6 +218,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7A9BA10C1F289D5700FB2336 /* AsyncButton.m in Sources */,
 				7A0FD5A61EB37E51000A4518 /* LoginViewController.m in Sources */,
 				7A0FD5A81EB37E51000A4518 /* RegisterViewController.m in Sources */,
 				7A0FD5A51EB37E51000A4518 /* CustomButton.m in Sources */,
