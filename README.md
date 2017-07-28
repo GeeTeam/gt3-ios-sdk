@@ -14,7 +14,7 @@
 开发目标|兼容iOS7, 推荐iOS8+|
 开发环境|Xcode 8.0|
 系统依赖|`Webkit.framework`, `JavascriptCore.framework`|
-sdk三方依赖|无		|
+SDK三方依赖|无		|
 
 ## 获取SDK
 
@@ -33,7 +33,14 @@ git clone https://github.com/GeeTeam/gt3-ios-objc.git
 
 `GT3Captcha.framework`是`Static Library`, 支持iOS7+
 
-使用参见根部目录下的`GT3Example`demo工程
+*如需动态库, 请联系极验技术。`Dynamic Library`仅支持iOS8+.*
+
+使用参见根部目录下的`GT3Example`demo工程, demo包含以下场景
+
+1. 在登录使用sdk默认封装接口`LoginViewController`
+2. 在注册使用sdk默认封装接口`RegisterViewController`
+3. 在自定义按钮下使用sdk默认封装接口`CustomButton`
+4. 在自定义按钮下使用自定义接口`AsyncButton`
 
 demo以iOS8作为示例, 语言默认支持中文简体、中文繁体、英文，但需要在`.plist`里添加如下属性(已存在的不用再次添加):
 
@@ -46,7 +53,7 @@ demo以iOS8作为示例, 语言默认支持中文简体、中文繁体、英文�
 	</array>
 ```
 
-iOS7 不支持`Dynamic Library`, 所以无法使用`embedded binaries`, 而无法获取`.strings`等资源文件, 如需自定义按钮的标题请查阅[`tipsDict`](https://github.com/GeeTeam/gt3-ios-sdk/blob/develop/gt3-ios-dev-doc.md#tipsdict)相关定义
+iOS7 不支持`Dynamic Library`, 所以无法使用`embedded binaries`. 而`Dynamic Library`无法获取`.strings`等资源文件, 如需自定义按钮的标题请查阅[`tipsDict`](https://github.com/GeeTeam/gt3-ios-sdk/blob/develop/gt3-ios-dev-doc.md#tipsdict)相关定义
 
 极验验证3.0服务介绍[服务介绍](http://docs.geetest.com/install/overview/)
 
@@ -56,14 +63,16 @@ SDK接口文档见[接口文档](https://github.com/GeeTeam/gt3-ios-sdk/blob/dev
 
 ## 接口
 
-集成前需要先了解极验验证3.0的[产品结构](http://docs.geetest.com/install/overview/#产品结构), 并且必须要先在您的后端搭建相应的**服务端SDK**，并配置从[极验后台]()获取的`<gt_captcha_id>`和`<geetest_key>`用来配置您集成了极验服务端sdk的后台。
+集成前需要先了解极验验证3.0的[产品结构](http://docs.geetest.com/install/overview/#产品结构), 并且必须要先在您的后端搭建相应的**服务端SDK**，并配置从[极验后台](https://account.geetest.com/login)获取的`<gt_captcha_id>`和`<geetest_key>`用来配置您集成了极验服务端SDK的后台。
 
-其中iOS sdk主要提供以下接口:
+其中iOS SDK主要提供以下接口:
 
 1. 配置验证初始化
 2. 启动验证
-3. 获取验证结果
-4. 处理错误的代理
+3. 验证生命周期的代理方法
+	* 错误处理
+	* 结果处理
+	* 流程控制 
 
 ## 更新日志
 
