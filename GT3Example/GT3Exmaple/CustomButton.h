@@ -13,7 +13,7 @@
 @protocol CaptchaButtonDelegate;
 
 /**
- 自定按钮与验证事件绑定
+ demo场景: 仅自定按钮与验证事件绑定
  */
 @interface CustomButton : UIButton
 

@@ -13,7 +13,7 @@
 @protocol CaptchaButtonDelegate;
 
 /**
- 自定义api1和api2的处理, 并使用的自定义按钮, 使用此文件请充分测试业务场景下的极端环境
+ demo场景: 远程开关验证, 自定义api1和api2的处理, 并与自定义按钮事件绑定, 使用此文件请充分测试业务场景下的极端环境
  */
 @interface AsyncButton : UIButton
 

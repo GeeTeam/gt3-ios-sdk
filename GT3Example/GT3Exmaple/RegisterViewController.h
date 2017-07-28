@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
+/**
+ demo场景: 注册场景
+ */
 @interface RegisterViewController : UIViewController
 
 // 演示时用于区分是否使用`GT3CaptchaButton`实例, 实际开发集成中, 选择一种方式即可

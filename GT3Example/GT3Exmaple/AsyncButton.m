@@ -42,7 +42,7 @@
         _manager.delegate = self;
         _manager.viewDelegate = self;
         
-        //        [_manager enableDebugMode:YES];
+//        [_manager enableDebugMode:YES];
         [_manager useVisualViewWithEffect:[UIBlurEffect effectWithStyle:UIBlurEffectStyleDark]];
         //        _manager.maskColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.4];
     }
@@ -50,14 +50,16 @@
 }
 
 - (void)dealloc {
-    [self.manager stopGTCaptcha];
+    if (_manager) {
+        [_manager stopGTCaptcha];
+    }
 }
 
 - (instancetype)init {
     self = [super init];
     
     if (self) {
-        [self requestBusinessData];
+        [self _init];
         
         [self addTarget:self action:@selector(startCaptcha) forControlEvents:UIControlEventTouchUpInside];
     }
@@ -68,26 +70,46 @@
     self = [super initWithFrame:frame];
     
     if (self) {
-        [self requestBusinessData];
+        [self _init];
         
-        //        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(startCaptcha)];
-        //        [self addGestureRecognizer:tap];
+//        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(startCaptcha)];
+//        [self addGestureRecognizer:tap];
         [self addTarget:self action:@selector(startCaptcha) forControlEvents:UIControlEventTouchUpInside];
     }
     return self;
 }
 
-- (void)requestBusinessData {
+- (void)_init {
+    [self setUserInteractionEnabled:NO];
+    [self.manager registerCaptcha:^{
+        [self setUserInteractionEnabled:YES];
+    }];
+}
+
+- (void)startCaptcha {
+    if (_delegate && [_delegate respondsToSelector:@selector(captchaButtonShouldBeginTapAction:)]) {
+        if (![_delegate captchaButtonShouldBeginTapAction:self]) {
+            return;
+        }
+    }
+    /**
+     *  TO-DO 从接口解析是否开启极验3.0, 并解析和配置验证参数
+     *  不要重复调用, 在交互上需要处理用户的短时间内多次点击的问题
+     */
     NSURLSession *session = [NSURLSession sessionWithConfiguration:[[NSURLSessionConfiguration alloc] init]];
-    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:@"www.geetest.com"]];
+    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:api_1]];
     NSURLSessionDataTask *task = [session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
         if (!error) {
-            // receive 
-            [self setUserInteractionEnabled:NO];
-            [self.manager registerCaptcha:^{
-                [self removeIndicator];
-                [self setUserInteractionEnabled:YES];
-            }];
+            NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:(NSJSONReadingOptions)0 error:&error];
+            
+            if (!error && dict) {
+                NSString *geetest_id = [dict objectForKey:@"gt"];
+                NSString *geetest_challenge = [dict objectForKey:@"challenge"];
+                NSNumber *geetest_success = [dict objectForKey:@"success"];
+                // 不要重复调用
+                [self.manager configureGTest:geetest_id challenge:geetest_challenge success:geetest_success withAPI2:api_2];
+                [self.manager startGTCaptchaWithAnimated:YES];
+            }
         }
         else {
             NSLog(@"error:\n%@", error.localizedDescription);
@@ -97,57 +119,27 @@
     [task resume];
 }
 
-- (UIActivityIndicatorView *)createActivityIndicator {
-    UIActivityIndicatorView *indicatorView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
-    [indicatorView setHidesWhenStopped:YES];
-    [_indicatorView stopAnimating];
-    
-    return indicatorView;
-}
-
-- (void)startCaptcha {
-    if (_delegate && [_delegate respondsToSelector:@selector(captchaButtonShouldBeginTapAction:)]) {
-        if (![_delegate captchaButtonShouldBeginTapAction:self]) {
-            return;
-        }
-    }
-    [self.manager startGTCaptchaWithAnimated:YES];
-}
-
 - (void)stopCaptcha {
     [self.manager stopGTCaptcha];
-}
-
-- (void)showIndicator {
-    self.originalTitle = self.titleLabel.text;
-    self.titleFlag = YES;
-    [self setTitle:@"" forState:UIControlStateNormal];
-    self.titleFlag = NO;
-    [self setUserInteractionEnabled:NO];
-    self.indicatorView.translatesAutoresizingMaskIntoConstraints = NO;
-    [self addSubview:self.indicatorView];
-    [self centerActivityIndicatorInButton];
-    [self.indicatorView startAnimating];
-}
-
-- (void)removeIndicator {
-    [self setTitle:self.originalTitle forState:UIControlStateNormal];
-    [self setUserInteractionEnabled:YES];
-    [self.indicatorView removeFromSuperview];
-}
-
-- (void)centerActivityIndicatorInButton {
-    NSLayoutConstraint *constraintX = [NSLayoutConstraint constraintWithItem:self attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:self.indicatorView attribute:NSLayoutAttributeCenterX multiplier:1 constant:0];
-    
-    NSLayoutConstraint *constraintY = [NSLayoutConstraint constraintWithItem:self attribute:NSLayoutAttributeCenterY relatedBy:NSLayoutRelationEqual toItem:self.indicatorView attribute:NSLayoutAttributeCenterY multiplier:1 constant:0];
-    
-    [self addConstraints:@[constraintX, constraintY]];
 }
 
 #pragma mark GT3CaptchaManagerDelegate
 
 - (void)gtCaptcha:(GT3CaptchaManager *)manager errorHandler:(GT3Error *)error {
     //处理验证中返回的错误
+    if (error.code == -999) {
+        // 请求被意外中断, 一般由用户进行取消操作导致, 可忽略错误
+    }
+    else if (error.code == -10) {
+        // 预判断时被封禁, 不会再进行图形验证
+    }
+    else if (error.code == -20) {
+        // 尝试过多
+    }
+    else {
+        // 网络问题或解析失败, 更多错误码参考开发文档
+    }
+    
     [TipsView showTipOnKeyWindow:[NSString stringWithFormat:@"验证发生错误\n%@", error.localizedDescription]];
     NSLog(@"\nerror: %@,\nmetadata: %@,\nmethod hint: %@", error.localizedDescription, [[NSString alloc] initWithData:error.metaData encoding:NSUTF8StringEncoding], error.gtDescription);
 }
@@ -157,80 +149,59 @@
     NSLog(@"User Did Close GTView.");
 }
 
-- (void)gtCaptcha:(GT3CaptchaManager *)manager didReceiveSecondaryCaptchaData:(NSData *)data response:(NSURLResponse *)response error:(GT3Error *)error decisionHandler:(void (^)(GT3SecondaryCaptchaPolicy))decisionHandler {
-    if (!error) {
-        //处理你的验证结果
-        NSLog(@"\ndata: %@", [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
-        //成功请调用decisionHandler(GT3SecondaryCaptchaPolicyAllow)
-        decisionHandler(GT3SecondaryCaptchaPolicyAllow);
-        //失败请调用decisionHandler(GT3SecondaryCaptchaPolicyForbidden)
-        //decisionHandler(GT3SecondaryCaptchaPolicyForbidden);
-        
-    }
-    else {
-        //二次验证发生错误
-        decisionHandler(GT3SecondaryCaptchaPolicyForbidden);
-        NSLog(@"validate error: %ld, %@", (long)error.code, error.localizedDescription);
-    }
-    if (_delegate && [_delegate respondsToSelector:@selector(captcha:didReceiveSecondaryCaptchaData:response:error:)]) {
-        [_delegate captcha:manager didReceiveSecondaryCaptchaData:data response:response error:error];
-    }
+- (BOOL)shouldUseDefaultRegisterAPI:(GT3CaptchaManager *)manager {
+    return NO;
 }
 
-- (void)gtCaptcha:(GT3CaptchaManager *)manager willSendSecondaryCaptchaRequest:(void (^)(NSMutableURLRequest *))requestHandler {
-    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:api_2] cachePolicy:0 timeoutInterval:5.0];
-    [request setHTTPMethod:@"POST"];
-    [request addValue:@"application/x-www-form-urlencoded; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
-    requestHandler(request);
-}
-
-- (NSDictionary *)gtCaptcha:(GT3CaptchaManager *)manager didReceiveDataFromAPI1:(NSDictionary *)dictionary withError:(GT3Error *)error {
-    if (!error) {
-        NSLog(@"didReceiveDataFromAPI1:\n%@", dictionary);
-    }
-    else {
-        NSLog(@"error: %@", error.localizedDescription);
-    }
+- (void)gtCaptcha:(GT3CaptchaManager *)manager didReceiveCaptchaCode:(NSString *)code result:(NSDictionary *)result message:(NSString *)message {
     
-    return nil;
+    /**
+     *  TO-DO 处理result数据, 进行二次验证
+     */
+    __block NSMutableString *postResult = [[NSMutableString alloc] init];
+    [result enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL * stop) {
+        [postResult appendFormat:@"%@=%@&",key,obj];
+    }];
+    
+    NSDictionary *headerFields = @{@"Content-Type":@"application/x-www-form-urlencoded;charset=UTF-8"};
+    NSMutableURLRequest *secondaryRequest = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:api_2] cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:15.0];
+    secondaryRequest.HTTPMethod = @"POST";
+    secondaryRequest.allHTTPHeaderFields = headerFields;
+    secondaryRequest.HTTPBody = [postResult dataUsingEncoding:NSUTF8StringEncoding];
+    
+    NSURLSessionConfiguration *config = [NSURLSessionConfiguration defaultSessionConfiguration];
+    NSURLSession *session = [NSURLSession sessionWithConfiguration:config];
+    NSURLSessionDataTask *task = [session dataTaskWithRequest:secondaryRequest completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        
+        [manager closeGTViewIfIsOpen];
+        
+        NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
+        if (!error && httpResponse.statusCode == 200) {
+            NSError *err;
+            NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:&err];
+            if (!err) {
+                NSString *status = [dict objectForKey:@"status"];
+                if ([status isEqualToString:@"success"]) {
+                    NSLog(@"通过业务流程");
+                }
+                else {
+                    NSLog(@"无法通过业务流程");
+                }
+            }
+        }
+    }];
+    
+    [task resume];
 }
 
-- (void)gtCaptcha:(GT3CaptchaManager *)manager willSendRequestAPI1:(void (^)(NSURLRequest *))requestHandler {
-//    NSString *rand = [NSString stringWithFormat:@"%d", arc4random() % 10000];
-//    [manager configureSuperProperty:@{@"rand": rand}];
-    NSURL *newURL = [NSURL URLWithString:api_1];
-    NSURLRequest *request = [NSURLRequest requestWithURL:newURL cachePolicy:0 timeoutInterval:5.0];
-    requestHandler(request);
+- (BOOL)shouldUseDefaultSecondaryValidate:(GT3CaptchaManager *)manager {
+    return NO;
 }
 
 #pragma mark GT3CaptchaManagerViewDelegate
 
 - (void)gtCaptchaWillShowGTView:(GT3CaptchaManager *)manager {
     NSLog(@"GTView Will Show.");
-}
-
-- (void)gtCaptcha:(GT3CaptchaManager *)manager updateCaptchaStatus:(GT3CaptchaState)state tip:(NSString *)tip color:(UIColor *)color {
-    
-    switch (state) {
-        case GT3CaptchaStateComputing: {
-            [self showIndicator];
-            break;
-        }
-        case GT3CaptchaStateWaiting:
-        case GT3CaptchaStateCollecting:
-        case GT3CaptchaStateFail:
-        case GT3CaptchaStateError:
-        case GT3CaptchaStateSuccess: {
-            [self removeIndicator];
-            break;
-        }
-        case GT3CaptchaStateInactive:
-        case GT3CaptchaStateActive:
-        case GT3CaptchaStateInitial:
-        default: {
-            break;
-        }
-    }
 }
 
 @end
