@@ -141,7 +141,7 @@
 #pragma mark 其他配置的方法
 
 /**
- *  @abstract 验证超时的时长
+ *  @abstract 图形验证超时的时长
  *
  *  @param timeout GT3WebView资源请求超时时间
  */
