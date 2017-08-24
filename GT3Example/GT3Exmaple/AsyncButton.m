@@ -80,10 +80,7 @@
 }
 
 - (void)_init {
-    [self setUserInteractionEnabled:NO];
-    [self.manager registerCaptcha:^{
-        [self setUserInteractionEnabled:YES];
-    }];
+    [self.manager registerCaptcha:nil];
 }
 
 - (void)startCaptcha {
