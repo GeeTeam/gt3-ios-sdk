@@ -45,7 +45,9 @@
 #pragma mark 基本方法
 
 /** 验证单例 */
-+ (instancetype)sharedGTManager;
++ (instancetype)sharedGTManagerWithAPI1:(NSString *)api_1
+                                   API2:(NSString *)api_2
+                                timeout:(NSTimeInterval)timeout;
 
 /**
  *  @abstract 验证初始化方法
@@ -395,5 +397,7 @@
 - (void)gtCaptchaDidStartCaptcha:(GT3CaptchaManager *)manager;
 - (void)gtCaptcha:(GT3CaptchaManager *)manager didReceiveFullpageResult:(NSString *)result;
 - (void)gtCaptchaNotifyGTViewDidReady:(GT3CaptchaManager *)manager;
+
+- (void)gtCaptcha:(GT3CaptchaManager *)manager didReturnStatisticInfomation:(NSData *)data;
 
 @end

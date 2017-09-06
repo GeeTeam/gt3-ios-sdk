@@ -17,7 +17,7 @@
 #import "NSAttributedString+AttributedString.h"
 
 //网站主部署的用于验证注册的接口 (api_1)
-#define api_1 @"https://www.geetest.com/demo/gt/register-test"
+#define api_1 @"http://www.geetest.com/demo/gt/register-test"
 //网站主部署的二次验证的接口 (api_2)
 #define api_2 @"http://www.geetest.com/demo/gt/validate-test"
 
@@ -290,11 +290,14 @@
 }
  */
 
-/** 修改API1的请求
+/** 修改API1的请求 */
 - (void)gtCaptcha:(GT3CaptchaManager *)manager willSendRequestAPI1:(NSURLRequest *)originalRequest withReplacedHandler:(void (^)(NSURLRequest *))replacedHandler {
+    NSMutableURLRequest *mRequest = [originalRequest mutableCopy];
+    NSString *newURL = [NSString stringWithFormat:@"%@?t=%.0f", originalRequest.URL.absoluteString, [[[NSDate alloc] init]timeIntervalSince1970]];
+    mRequest.URL = [NSURL URLWithString:newURL];
     
+    replacedHandler(mRequest);
 }
- */
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
