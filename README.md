@@ -76,6 +76,7 @@ SDK接口文档见[接口文档](https://github.com/GeeTeam/gt3-ios-sdk/blob/dev
 
 ## 更新日志
 
+* **0.8.11:** 增加针对弱网的重试机制;
 * **0.8.10:** 修复潜在bug; 增强统计接口;
 * **0.8.8:** 修复潜在的crash问题; 修复内存泄漏; 增加debug代理;
 * **0.8.6:** 紧急修复`openURL:`在iOS11上导致的crash问题;
