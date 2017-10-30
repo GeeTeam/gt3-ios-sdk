@@ -122,6 +122,10 @@
 
 #pragma mark GT3CaptchaManagerDelegate
 
+- (void)gtCaptcha:(GT3CaptchaManager *)manager didReceiveSecondaryCaptchaData:(NSData *)data response:(NSURLResponse *)response error:(GT3Error *)error decisionHandler:(void (^)(GT3SecondaryCaptchaPolicy))decisionHandler {
+    
+}
+
 - (void)gtCaptcha:(GT3CaptchaManager *)manager errorHandler:(GT3Error *)error {
     //处理验证中返回的错误
     if (error.code == -999) {
