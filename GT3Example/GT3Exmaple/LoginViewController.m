@@ -13,13 +13,14 @@
 #import "CustomButton.h"
 #import "TextField.h"
 #import "TipsView.h"
+#import "AsyncButton.h"
 
 #import "NSAttributedString+AttributedString.h"
 
 //网站主部署的用于验证登录的接口 (api_1)
-#define api_1 @"http://www.geetest.com/demo/gt/register-slide"
+#define api_1 @"http://www.geetest.com/demo/gt/register-click"
 //网站主部署的二次验证的接口 (api_2)
-#define api_2 @"http://www.geetest.com/demo/gt/validate-slide"
+#define api_2 @"http://www.geetest.com/demo/gt/validate-click"
 
 @interface LoginViewController () <GT3CaptchaManagerDelegate, CaptchaButtonDelegate>
 
@@ -215,9 +216,19 @@
     }
 }
 
+
+//- (NSDictionary *)gtCaptcha:(GT3CaptchaManager *)manager didReceiveDataFromAPI1:(NSDictionary *)dictionary withError:(GT3Error *)error {
+//    
+//    NSDictionary *dic = @{@"challenge": dictionary[@"challenge"],
+//                          @"gt": dictionary[@"gt"],
+//                          @"success": @(0)};
+//    return dic;
+//}
+
+
 /** 修改API2的请求
 - (void)gtCaptcha:(GT3CaptchaManager *)manager willSendSecondaryCaptchaRequest:(NSURLRequest *)originalRequest withReplacedRequest:(void (^)(NSMutableURLRequest *))replacedRequest {
-    
+ 
 }
  */
 
@@ -256,7 +267,7 @@
             }
         }
     }];
-    
+ 
     [task resume];
 }
 

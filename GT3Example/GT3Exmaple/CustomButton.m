@@ -171,6 +171,10 @@
     }
 }
 
+- (void)gtCaptcha:(GT3CaptchaManager *)manager didReceiveCaptchaCode:(NSString *)code result:(NSDictionary *)result message:(NSString *)message {
+    NSLog(@"Have received code from web.");
+}
+
 /** 修改API2的请求
 - (void)gtCaptcha:(GT3CaptchaManager *)manager willSendSecondaryCaptchaRequest:(NSURLRequest *)originalRequest withReplacedRequest:(void (^)(NSMutableURLRequest *))replacedRequest {
     
@@ -196,7 +200,7 @@
     NSURLSessionDataTask *task = [session dataTaskWithRequest:secondaryRequest completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
         
         [manager closeGTViewIfIsOpen];
-        
+ 
         NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
         if (!error && httpResponse.statusCode == 200) {
             NSError *err;

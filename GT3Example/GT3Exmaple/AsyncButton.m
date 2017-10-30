@@ -141,6 +141,10 @@
     NSLog(@"\nerror: %@,\nmetadata: %@,\nmethod hint: %@", error.localizedDescription, [[NSString alloc] initWithData:error.metaData encoding:NSUTF8StringEncoding], error.gtDescription);
 }
 
+- (void)gtCaptcha:(GT3CaptchaManager *)manager didReceiveSecondaryCaptchaData:(NSData *)data response:(NSURLResponse *)response error:(GT3Error *)error decisionHandler:(void (^)(GT3SecondaryCaptchaPolicy))decisionHandler {
+    
+}
+
 - (void)gtCaptchaUserDidCloseGTView:(GT3CaptchaManager *)manager {
     [TipsView showTipOnKeyWindow:@"验证已被取消"];
     NSLog(@"User Did Close GTView.");
