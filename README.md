@@ -38,7 +38,9 @@ git clone https://github.com/GeeTeam/gt3-ios-objc.git
 
 ### 引入 `GT3Captcha.Bundle`
 
- 把仓库中的 `GT3Captcha.Bundle` 拖入项目中. iOS7 不支持 `Dynamic Library`, 无法使用 `embedded binaries`. 而 `Dynamic Library` 无法获取 `.strings` 等资源文件, 这里以 bundle 外嵌的方式单独管理 SDK 所需资源文件. 如需自定义按钮的标题请查阅 [`tipsDict`](https://github.com/GeeTeam/gt3-ios-SDK/blob/develop/gt3-ios-dev-doc.md#tipsdict) 相关定义
+ 把仓库中的 `GT3Captcha.Bundle` 拖入项目中. iOS7 不支持 `Dynamic Library`, 无法使用 `embedded binaries`. 而 `Dynamic Library` 无法获取 `.strings` 等资源文件, 这里以 bundle 外嵌的方式单独管理 SDK 所需资源文件. 
+ 
+如需自定义按钮的标题请查阅 [`tipsDict`](https://github.com/GeeTeam/gt3-ios-SDK/blob/develop/gt3-ios-dev-doc.md#tipsdict) 相关定义
 
 ### Demo 提供的示例场景
 使用参见根部目录下的 `GT3Example` Demo 工程, Demo 包含以下场景:
