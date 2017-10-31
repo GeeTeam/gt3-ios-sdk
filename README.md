@@ -4,8 +4,8 @@
 
 极验验证 3.0 iOS SDK 提供给集成 iOS 原生客户端开发的开发者使用, SDK 不依赖任何第三方库.
 
-* **Bitcode 版本**在 `Bitcode` 目录下的 `GT3Captcha.framework`
-* **非 Bitcode 版本**在 `GT3Example` 目录下的 `GT3Captcha.framework`
+* **Bitcode 版本**在 `Bitcode` 目录下的 `GT3Captcha.framework`及`GT3Captcha.Bundle`
+* **非 Bitcode 版本**在 `GT3Example` 目录下的 `GT3Captcha.framework`及`GT3Captcha.Bundle`
 
 ## 环境需求
 
@@ -15,7 +15,7 @@
 开发环境|Xcode 8.0|
 系统依赖|`Webkit.framework`, `JavaScriptCore.framework`|
 SDK 三方依赖|无		|
-资源依赖 | SDK 中所需图片、文件等资源依赖 `GT3Captcha.Bundle` |
+资源依赖 |依赖 `GT3Captcha.Bundle` |
 
 ## 获取 SDK
 
@@ -34,13 +34,11 @@ git clone https://github.com/GeeTeam/gt3-ios-objc.git
 
 ### 引入 `GT3Captcha.framework`
 
-使用 `Linked Frameworks and Libraries` 方式引入  `GT3Captcha.framework`. `GT3Captcha.framework` 是 `Static Library`, 支持 iOS7+.   
-
-*如需动态库, 请联系极验技术. `Dynamic Library` 仅支持 iOS8+.*
+使用 `Linked Frameworks and Libraries` 方式引入  `GT3Captcha.framework`. `GT3Captcha.framework` 是 `Static Library`, 支持 iOS7+.
 
 ### 引入 `GT3Captcha.Bundle`
 
- 把 Demo 中的 `GT3Captcha.Bundle` 拖入项目中. iOS7 不支持 `Dynamic Library`, 无法使用 `embedded binaries`. 而 `Dynamic Library` 无法获取 `.strings` 等资源文件, 这里以 bundle 外嵌的方式单独管理 SDK 所需资源文件. 如需自定义按钮的标题请查阅 [`tipsDict`](https://github.com/GeeTeam/gt3-ios-SDK/blob/develop/gt3-ios-dev-doc.md#tipsdict) 相关定义
+ 把仓库中的 `GT3Captcha.Bundle` 拖入项目中. iOS7 不支持 `Dynamic Library`, 无法使用 `embedded binaries`. 而 `Dynamic Library` 无法获取 `.strings` 等资源文件, 这里以 bundle 外嵌的方式单独管理 SDK 所需资源文件. 如需自定义按钮的标题请查阅 [`tipsDict`](https://github.com/GeeTeam/gt3-ios-SDK/blob/develop/gt3-ios-dev-doc.md#tipsdict) 相关定义
 
 ### Demo 提供的示例场景
 使用参见根部目录下的 `GT3Example` Demo 工程, Demo 包含以下场景:
