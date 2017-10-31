@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -24,13 +24,34 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background.png" translatesAutoresizingMaskIntoConstraints="NO" id="OM0-GV-K2J">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Power By Geetest 2017" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UnQ-lZ-YM9">
+                                <rect key="frame" x="127" y="626" width="122" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="122" id="6GG-rZ-3ve"/>
+                                    <constraint firstAttribute="height" constant="21" id="Vc0-C2-6n0"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="11"/>
+                                <color key="textColor" red="0.99519230769230771" green="0.99038461538461542" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo_white" translatesAutoresizingMaskIntoConstraints="NO" id="fHa-oN-jNd">
+                                <rect key="frame" x="126" y="318" width="123" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="123" id="P4y-eB-tP1"/>
+                                    <constraint firstAttribute="height" constant="31" id="wJf-25-kUX"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="OM0-GV-K2J" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="0gj-FI-3rR"/>
+                            <constraint firstItem="UnQ-lZ-YM9" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="Mjp-fJ-cHX"/>
+                            <constraint firstItem="fHa-oN-jNd" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="QZ0-lz-8j0"/>
                             <constraint firstItem="OM0-GV-K2J" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="Ve7-Ww-bQP"/>
                             <constraint firstAttribute="trailing" secondItem="OM0-GV-K2J" secondAttribute="trailing" id="W7m-g4-SlJ"/>
+                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="UnQ-lZ-YM9" secondAttribute="bottom" constant="20" id="fnu-yq-1IC"/>
                             <constraint firstAttribute="bottom" secondItem="OM0-GV-K2J" secondAttribute="bottom" id="wKX-Ea-oTN"/>
+                            <constraint firstItem="fHa-oN-jNd" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="yiF-MO-iSF"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -41,5 +62,6 @@
     </scenes>
     <resources>
         <image name="background.png" width="667" height="667"/>
+        <image name="logo_white" width="123" height="31"/>
     </resources>
 </document>
