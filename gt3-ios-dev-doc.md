@@ -898,6 +898,18 @@ typedef NS_ENUM(NSUInteger, GT3ErrorType) {
 
 极验服务器ajax返回运行错误
 
+#### 接口调用错误 `-70`
+
+极验3.0 sdk 接口调用错误, 未配置参数或设置代理方法
+
+#### 缺失资源文件 `-71`
+
+缺失`GT3Captcha.bundle`
+
+#### 接口调用错误 `-80`
+
+未设置代理方法
+
 >其他的部分基本遵从**NSURLErrorDomain**
 
 #### 取消网络请求 `-999`
@@ -1097,25 +1109,6 @@ typedef NS_ENUM(NSInteger, GT3SecondaryCaptchaPolicy) {
     GT3SecondaryCaptchaPolicyAllow,
     /** 二次验证拒绝 */
     GT3SecondaryCaptchaPolicyForbidden
-};
-```
-
-### GT3PresentType
-
-极验验证状态的枚举量
- 
-**Declaration**
- 
-```
-typedef NS_ENUM(NSInteger, GT3PresentType) {
-    /** Popup on the center of screen. <b>Default</b>. */
-    GT3PopupCenterType = 0,
-    /**
-     * @abstract Popup on the bottom of screen. <b>Portrait ONLY</b>.
-     *
-     * @discussion Close <b>geetest</b> if opened when detect the device orientated. You should open <b>geetest</b> again manually because of the <b>Challenge</b> can't be used twice in the same session.
-     */
-    GT3PopupBottomType
 };
 ```
 
