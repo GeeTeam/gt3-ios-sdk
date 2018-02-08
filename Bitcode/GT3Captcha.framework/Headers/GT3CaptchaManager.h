@@ -275,7 +275,9 @@
 /**
  *  @abstract 将要向<b>API1</b>发送请求的时候调用此方法, 通过此方法可以修改将要发送的请求
  *
- *  @discussion 调用此方法的时候必须执行<b>requestHandler</b>, 否则导致内存泄露。 不支持子线程。
+ *  @warning 不支持子线程操作。
+ *
+ *  @discussion 调用此方法的时候必须执行<b>requestHandler</b>, 否则可能导致内存泄露。
  *
  *  @param manager         验证管理器
  *  @param originalRequest 默认发送的请求对象
@@ -286,6 +288,8 @@
 /**
  *  @abstract 当接收到从<b>API1</b>的数据, 通知返回字典, 包括<b>gt_public_key</b>,
  *  <b>gt_challenge</b>, <b>gt_success_code</b>
+ *
+ *  @warning 不支持子线程操作。
  *
  *  @discussion
  *  如果实现此方法, 需要解析验证需要的数据并返回。
@@ -329,7 +333,9 @@
 - (BOOL)shouldUseDefaultSecondaryValidate:(GT3CaptchaManager *)manager;
 
 /**
- *  @abstract 通知即将进行二次验证, 再次修改发送至<b>API2</b>的验证。 不支持子线程。
+ *  @abstract 通知即将进行二次验证, 再次修改发送至<b>API2</b>的验证。
+ *
+ *  @warning 不支持子线程操作。
  *
  *  @discussion
  *  请不要修改<b>requestHandler</b>执行所在的线程或队列, 否则可能导

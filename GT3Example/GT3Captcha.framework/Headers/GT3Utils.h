@@ -77,6 +77,8 @@ typedef NS_ENUM(NSInteger, GT3LanguageType) {
     GT3LANGTYPE_JA_JP,// 暂不支持
     /** English */
     GT3LANGTYPE_EN_US,
+    /** Indonesian */
+    GT3LANGTYPE_ID,
     /** System language*/
     GT3LANGTYPE_AUTO
 };
