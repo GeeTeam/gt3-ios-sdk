@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6B3C85C82050008300E6E993 /* GT3Captcha.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 6B3C85C62050008300E6E993 /* GT3Captcha.bundle */; };
+		6B3C85C92050008300E6E993 /* GT3Captcha.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B3C85C72050008300E6E993 /* GT3Captcha.framework */; };
 		7A0FD5A51EB37E51000A4518 /* CustomButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A0FD5981EB37E51000A4518 /* CustomButton.m */; };
 		7A0FD5A61EB37E51000A4518 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A0FD59A1EB37E51000A4518 /* LoginViewController.m */; };
 		7A0FD5A71EB37E51000A4518 /* NSAttributedString+AttributedString.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A0FD59C1EB37E51000A4518 /* NSAttributedString+AttributedString.m */; };
@@ -20,9 +22,6 @@
 		7A4FC97F1E814D600045C748 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A4FC97D1E814D600045C748 /* LaunchScreen.storyboard */; };
 		7A958B1D1E8D5A850030EBC3 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A958B1C1E8D5A850030EBC3 /* WebKit.framework */; };
 		7A9BA10C1F289D5700FB2336 /* AsyncButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A9BA10B1F289D5700FB2336 /* AsyncButton.m */; };
-		7A9D640B1F06325B007B6C07 /* GT3Captcha.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A958B1E1E8D5B340030EBC3 /* GT3Captcha.framework */; };
-		7A9D640C1F06325B007B6C07 /* GT3Captcha.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7A958B1E1E8D5B340030EBC3 /* GT3Captcha.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		BF14B6EE1FA7197100F2F8D3 /* GT3Captcha.bundle in Resources */ = {isa = PBXBuildFile; fileRef = BF14B6ED1FA7197100F2F8D3 /* GT3Captcha.bundle */; };
 		BF14B6F01FA71E6700F2F8D3 /* Asset.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF14B6EF1FA71E6700F2F8D3 /* Asset.xcassets */; };
 		BF14B6F21FA7216B00F2F8D3 /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = BF14B6F11FA7216B00F2F8D3 /* background.png */; };
 /* End PBXBuildFile section */
@@ -34,7 +33,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				7A9D640C1F06325B007B6C07 /* GT3Captcha.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -42,6 +40,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		6B3C85C62050008300E6E993 /* GT3Captcha.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = GT3Captcha.bundle; sourceTree = "<group>"; };
+		6B3C85C72050008300E6E993 /* GT3Captcha.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GT3Captcha.framework; sourceTree = "<group>"; };
 		7A0FD5971EB37E51000A4518 /* CustomButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomButton.h; sourceTree = "<group>"; };
 		7A0FD5981EB37E51000A4518 /* CustomButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomButton.m; sourceTree = "<group>"; };
 		7A0FD5991EB37E51000A4518 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
@@ -64,10 +64,8 @@
 		7A4FC97E1E814D600045C748 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7A4FC9801E814D600045C748 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7A958B1C1E8D5A850030EBC3 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
-		7A958B1E1E8D5B340030EBC3 /* GT3Captcha.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GT3Captcha.framework; sourceTree = "<group>"; };
 		7A9BA10A1F289D5700FB2336 /* AsyncButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsyncButton.h; sourceTree = "<group>"; };
 		7A9BA10B1F289D5700FB2336 /* AsyncButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsyncButton.m; sourceTree = "<group>"; };
-		BF14B6ED1FA7197100F2F8D3 /* GT3Captcha.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = GT3Captcha.bundle; sourceTree = "<group>"; };
 		BF14B6EF1FA71E6700F2F8D3 /* Asset.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Asset.xcassets; sourceTree = "<group>"; };
 		BF14B6F11FA7216B00F2F8D3 /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -77,7 +75,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7A9D640B1F06325B007B6C07 /* GT3Captcha.framework in Frameworks */,
+				6B3C85C92050008300E6E993 /* GT3Captcha.framework in Frameworks */,
 				7A958B1D1E8D5A850030EBC3 /* WebKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -88,8 +86,8 @@
 		7A4FC9631E814D600045C748 = {
 			isa = PBXGroup;
 			children = (
-				BF14B6ED1FA7197100F2F8D3 /* GT3Captcha.bundle */,
-				7A958B1E1E8D5B340030EBC3 /* GT3Captcha.framework */,
+				6B3C85C62050008300E6E993 /* GT3Captcha.bundle */,
+				6B3C85C72050008300E6E993 /* GT3Captcha.framework */,
 				7A4FC96E1E814D600045C748 /* GT3Exmaple */,
 				7A4FC96D1E814D600045C748 /* Products */,
 				7A958B1B1E8D5A850030EBC3 /* Frameworks */,
@@ -212,10 +210,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				7A4FC97F1E814D600045C748 /* LaunchScreen.storyboard in Resources */,
+				6B3C85C82050008300E6E993 /* GT3Captcha.bundle in Resources */,
 				BF14B6F21FA7216B00F2F8D3 /* background.png in Resources */,
 				7A4FC97A1E814D600045C748 /* Main.storyboard in Resources */,
 				BF14B6F01FA71E6700F2F8D3 /* Asset.xcassets in Resources */,
-				BF14B6EE1FA7197100F2F8D3 /* GT3Captcha.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

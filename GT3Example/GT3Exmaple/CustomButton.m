@@ -10,9 +10,9 @@
 #import "TipsView.h"
 
 //网站主部署的用于验证注册的接口 (api_1)
-#define api_1 @"http://www.geetest.com/demo/gt/register-fullpage"
+#define api_1 @"http://www.geetest.com/demo/gt/register-slide"
 //网站主部署的二次验证的接口 (api_2)
-#define api_2 @"http://www.geetest.com/demo/gt/validate-fullpage"
+#define api_2 @"http://www.geetest.com/demo/gt/validate-slide"
 
 @interface CustomButton () <GT3CaptchaManagerDelegate, GT3CaptchaManagerViewDelegate>
 
