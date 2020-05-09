@@ -1,3 +1,5 @@
+**本仓库已停止维护。通过依赖管理或手动方式获取最新 SDK 请访问 [iOS SDK 及 Demo 下载地址](https://docs.geetest.com/sensebot/deploy/client/ios#安装)**
+
 # GT3Captcha Project
 
 ## 概述
